@@ -1,5 +1,4 @@
-import statistics
-from numpy import select
+import numpy as np
 import tensorflow as tf
 
 def build_model(

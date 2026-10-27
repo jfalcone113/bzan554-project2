@@ -72,7 +72,6 @@ def load_split(split, filepath = data_path):
 # --------------------------------------------------
 
 def calculate_statistics():
-
     minimums = None
     maximums = None
 
@@ -93,8 +92,8 @@ def calculate_statistics():
             maximums = chunk_max
         
         else:
-            minimums = np.minimum(minimums, chunk_min)
-            maximums = np.maximum(maximums, chunk_max)
+            minimums = minimums.combine(chunk_min, min)
+            maximums = maximums.combine(chunk_max, max)
         
         categories.update(chunk['category'].unique())
         
@@ -150,15 +149,20 @@ def preprocess_chunk(chunk, statistics):
 # Prepared Data Generator
 # --------------------------------------------------
 
-def data_generator(split, statistics):
-    
+def data_generator(split, statistics, shuffle = False, seed = random_state):
+    rng = np.random.default_rng(seed)
     for chunk in load_split(split):
-
         if chunk.empty:
             continue
 
         X, y = preprocess_chunk(chunk, statistics)
 
+        if shuffle:
+            indices = rng.permutation(len(y))
+
+            X = X[indices]
+            y = y[indices]
+    
         yield X, y
 
 # --------------------------------------------------
@@ -166,7 +170,7 @@ def data_generator(split, statistics):
 # --------------------------------------------------
 
 if __name__ == '__main__':
-    print('Calculating training stats...')
+    print('Calculating training statistics...')
 
     statistics = calculate_statistics()
 
