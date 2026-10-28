@@ -1,8 +1,8 @@
 import tensorflow as tf
 
-from data import calculate_statistics, data_generator, numerical_features
-from model import build_model
-from tensorboard_logger import create_writer, log_metrics
+from .data import calculate_statistics, data_generator, numerical_features
+from .model import build_model
+from .tensorboard_logger import create_writer, log_metrics
 
 
 # --------------------------------------------------
@@ -16,7 +16,8 @@ def train_model(
     activation = 'sigmoid',
     random_state = 42,
     hidden_layers = None,
-    embedding_dim = 8
+    embedding_dim = 8,
+    run_id = None
 ):
     tf.keras.utils.set_random_seed(random_state)
     # Calculate training statistics
@@ -53,24 +54,32 @@ def train_model(
     # --------------------------------------------------
     # Experiment Tracking
     # --------------------------------------------------
-    architecture = (
-        '-'.join(map(str, hidden_layers))
-        if hidden_layers is not None
-        else 'default'
-    )
+    if run_id is None:
 
-    run_name = (
-        f'{optimizer}_'
-        f'{activation}_'
-        f'{learning_rate}_'
-        f'{architecture}_'
-        f'{embedding_dim}_'
-    )
+        architecture = (
+            '-'.join(map(str, hidden_layers))
+            if hidden_layers is not None
+            else 'default'
+        )
+
+        run_name = (
+            f'{optimizer}_'
+            f'{activation}_'
+            f'{learning_rate}_'
+            f'{architecture}_'
+            f'{embedding_dim}'
+        )
+    
+    else:
+        run_name = run_id
 
     # --------------------------------------------------
     # Incremental Training
     # --------------------------------------------------
-    writer = create_writer(run_name = run_name)
+    writer = create_writer(
+        run_name = run_name,
+        add_timestamp = run_id is None
+        )
 
     best_val_loss = float('inf')
     best_epoch = 0
@@ -171,7 +180,7 @@ def train_model(
 # Execute Training
 # --------------------------------------------------
 if __name__ == '__main__':
-    from evaluate import evaluate_model
+    from .evaluate import evaluate_model
     
     model, history, statistics = train_model(epochs = 20)
 

@@ -1,6 +1,6 @@
 import numpy as np
 
-from data import data_generator, target
+from .data import data_generator, target
 
 
 def evaluate_model(model, statistics, split = 'val'):
