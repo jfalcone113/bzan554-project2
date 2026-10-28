@@ -56,9 +56,9 @@ bzan554-project2/
 ├── src/
 │   ├── __init__.py
 │   ├── data.py
+│   ├── evaluate.py
 │   ├── model.py
-│   ├── train.py
-│   └── evaluate.py
+│   └── train.py
 │
 ├── experiments/
 │   ├── __init__.py

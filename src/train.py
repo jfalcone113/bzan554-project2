@@ -1,21 +1,23 @@
 import tensorflow as tf
+
 from data import calculate_statistics, data_generator, numerical_features
 from model import build_model
+from tensorboard_logger import create_writer, log_metrics
 
-# --------------------------------------------------
-# Configuration
-# --------------------------------------------------
-epochs = 20
-batch_size = 1024
-optimizer = 'adam'
-learning_rate = 0.001
-activation = 'sigmoid'
-random_state = 42
 
 # --------------------------------------------------
 # Training
 # --------------------------------------------------
-def train_model():
+def train_model(
+    epochs = 20,
+    batch_size = 1024,
+    optimizer = 'adam',
+    learning_rate = 0.001,
+    activation = 'sigmoid',
+    random_state = 42,
+    hidden_layers = None,
+    embedding_dim = 8
+):
     tf.keras.utils.set_random_seed(random_state)
     # Calculate training statistics
     print('Calculating training statistics...')
@@ -31,6 +33,8 @@ def train_model():
     model = build_model(
         input_dim = input_dim,
         num_skus = len(statistics['sku_lookup']),
+        embedding_dim = embedding_dim,
+        hidden_layers = hidden_layers,
         activation = activation,
         optimizer = optimizer,
         learning_rate = learning_rate
@@ -47,8 +51,31 @@ def train_model():
     }
     
     # --------------------------------------------------
+    # Experiment Tracking
+    # --------------------------------------------------
+    architecture = (
+        '-'.join(map(str, hidden_layers))
+        if hidden_layers is not None
+        else 'default'
+    )
+
+    run_name = (
+        f'{optimizer}_'
+        f'{activation}_'
+        f'{learning_rate}_'
+        f'{architecture}_'
+        f'{embedding_dim}_'
+    )
+
+    # --------------------------------------------------
     # Incremental Training
     # --------------------------------------------------
+    writer = create_writer(run_name = run_name)
+
+    best_val_loss = float('inf')
+    best_epoch = 0
+    best_weights = None
+
     for epoch in range(epochs):
         print(f'\nEpoch {epoch + 1}/{epochs}')
         model.reset_metrics()
@@ -60,7 +87,7 @@ def train_model():
             seed = random_state + epoch
         ):
             # Divide chunk into mini batches
-           for start in range(0, len(y), batch_size):
+            for start in range(0, len(y), batch_size):
                 end = start + batch_size
 
                 X_batch = {
@@ -79,6 +106,11 @@ def train_model():
         # Training metrics
         epoch_train_loss = train_metrics['loss']
         epoch_train_mae = train_metrics['mae']
+
+        if epoch_val_loss < best_val_loss:
+            best_val_loss = epoch_val_loss
+            best_epoch = epoch + 1
+            best_weights = model.get_weights()
 
         # --------------------------------------------------
         # Validation
@@ -109,6 +141,15 @@ def train_model():
         history['val_loss'].append(epoch_val_loss)
         history['val_mae'].append(epoch_val_mae)
 
+        log_metrics(
+            writer = writer,
+            epoch = epoch + 1,
+            train_loss = epoch_train_loss,
+            val_loss = epoch_val_loss,
+            train_mae = epoch_train_mae,
+            val_mae = epoch_val_mae
+        )
+
         print(
             f'Loss: {epoch_train_loss:.6f} |'
             f'MAE: {epoch_train_mae:.6f} |'
@@ -116,6 +157,13 @@ def train_model():
             f'Val MAE: {epoch_val_mae:.6f} |'
         )
     
+    if best_weights is not None:
+        model.set_weights(best_weights)
+
+    print(f'\nBest Epoch: {best_epoch}')
+    print(f'\nBest Validation Loss: {best_val_loss:.6f}')
+
+    writer.close()
     return model, history, statistics
 
 # --------------------------------------------------
@@ -124,9 +172,9 @@ def train_model():
 if __name__ == '__main__':
     from evaluate import evaluate_model
     
-    model, history, statistics = train_model()
+    model, history, statistics = train_model(epochs = 20)
 
     for split in ['train','val']:
         metrics = evaluate_model(model, statistics, split)
         print(f'\n{split.upper()}: {metrics}')
-
+    

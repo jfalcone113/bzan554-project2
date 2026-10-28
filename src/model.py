@@ -1,5 +1,6 @@
 import tensorflow as tf
 
+
 def build_model(
     input_dim,
     num_skus,

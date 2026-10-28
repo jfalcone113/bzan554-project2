@@ -1,4 +1,5 @@
 from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
@@ -12,10 +13,10 @@ data_path = Path(__file__).resolve().parent.parent/ 'data' / 'pricing.csv' # sto
 # Incremental learning
 chunk_size = 16384 # number of observations to load from data
 
-# Reproducibility
+# Set seed
 random_state = 42 # random seed
 
-# Dataset train/validation/test split
+# Train/validation/test split
 train_size = 0.7
 val_size = 0.15
 test_size = 0.15
@@ -37,8 +38,7 @@ def load_chunks(filepath = data_path, chunk_size = chunk_size):
         chunksize = chunk_size
     )
     
-    for chunk in reader:
-        yield chunk
+    yield from reader
 
 # --------------------------------------------------
 # Train/Validation/Test Split

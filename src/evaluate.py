@@ -1,5 +1,7 @@
 import numpy as np
+
 from data import data_generator, target
+
 
 def evaluate_model(model, statistics, split = 'val'):
     count = 0
