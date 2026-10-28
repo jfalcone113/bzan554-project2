@@ -107,11 +107,6 @@ def train_model(
         epoch_train_loss = train_metrics['loss']
         epoch_train_mae = train_metrics['mae']
 
-        if epoch_val_loss < best_val_loss:
-            best_val_loss = epoch_val_loss
-            best_epoch = epoch + 1
-            best_weights = model.get_weights()
-
         # --------------------------------------------------
         # Validation
         # --------------------------------------------------
@@ -131,6 +126,12 @@ def train_model(
         # Validation epochs
         epoch_val_loss = val_metrics['loss']
         epoch_val_mae = val_metrics['mae']
+
+        # Track best model
+        if epoch_val_loss < best_val_loss:
+            best_val_loss = epoch_val_loss
+            best_epoch = epoch + 1
+            best_weights = model.get_weights()
 
         # --------------------------------------------------
         # Store Results
