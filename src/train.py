@@ -1,4 +1,4 @@
-import numpy as np
+import tensorflow as tf
 from data import calculate_statistics, data_generator, numerical_features
 from model import build_model
 
@@ -16,6 +16,7 @@ random_state = 42
 # Training
 # --------------------------------------------------
 def train_model():
+    tf.keras.utils.set_random_seed(random_state)
     # Calculate training statistics
     print('Calculating training statistics...')
     statistics = calculate_statistics()
@@ -29,6 +30,7 @@ def train_model():
     # Initialize model
     model = build_model(
         input_dim = input_dim,
+        num_skus = len(statistics['sku_lookup']),
         activation = activation,
         optimizer = optimizer,
         learning_rate = learning_rate
@@ -58,9 +60,13 @@ def train_model():
             seed = random_state + epoch
         ):
             # Divide chunk into mini batches
-            for start in range(0, len(X), batch_size):
+           for start in range(0, len(y), batch_size):
                 end = start + batch_size
-                X_batch = X[start:end]
+
+                X_batch = {
+                    name: values[start:end]
+                    for name, values in X.items()
+                }
                 y_batch = y[start:end]
 
                 # Update weights using mini batch
@@ -69,6 +75,7 @@ def train_model():
                     y_batch,
                     return_dict = True
                 )
+
         # Training metrics
         epoch_train_loss = train_metrics['loss']
         epoch_train_mae = train_metrics['mae']
@@ -99,8 +106,8 @@ def train_model():
 
         history['loss'].append(epoch_train_loss)
         history['mae'].append(epoch_train_mae)
-        history['loss'].append(epoch_val_loss)
-        history['mae'].append(epoch_val_mae)
+        history['val_loss'].append(epoch_val_loss)
+        history['val_mae'].append(epoch_val_mae)
 
         print(
             f'Loss: {epoch_train_loss:.6f} |'
@@ -115,4 +122,11 @@ def train_model():
 # Execute Training
 # --------------------------------------------------
 if __name__ == '__main__':
+    from evaluate import evaluate_model
+    
     model, history, statistics = train_model()
+
+    for split in ['train','val']:
+        metrics = evaluate_model(model, statistics, split)
+        print(f'\n{split.upper()}: {metrics}')
+

@@ -1,8 +1,9 @@
-import numpy as np
 import tensorflow as tf
 
 def build_model(
     input_dim,
+    num_skus,
+    embedding_dim = 8,
     hidden_layers = None,
     activation = 'sigmoid',
     optimizer = 'sgd',
@@ -16,30 +17,55 @@ def build_model(
             max(1, int(input_dim * 0.6**2)),
             max(1, int(input_dim * 0.6**3))
         ]
-    
-    # Initialize neural network
-    model = tf.keras.Sequential()
 
-    # Input
-    model.add(
-        tf.keras.layers.Input(shape = (input_dim,))
+    sku_input = tf.keras.Input(
+        shape = (1,),
+        dtype = 'int32',
+        name = 'sku_input'
     )
 
-    # Hidden Layers
+    features_input = tf.keras.Input(
+        shape = (input_dim,),
+        name = 'features_input'
+    )
+
+    sku_vector = tf.keras.layers.Embedding(
+        input_dim = num_skus + 1,
+        output_dim = embedding_dim,
+        name = 'sku_embedding'
+    )(sku_input)
+
+    sku_vector = tf.keras.layers.Flatten()(sku_vector)
+
+    # Unseen SKUs use a zero vector instead of an untrained embedding
+    sku_vector = tf.keras.layers.Lambda(
+        lambda values: values[0] * tf.cast(
+            tf.not_equal(values[1],0),
+            values[0].dtype
+        ),
+        output_shape = (embedding_dim,),
+        name = 'mask_unseen_skus'
+    )([sku_vector, sku_input])
+
+    x = tf.keras.layers.Concatenate()([
+        features_input,
+        sku_vector
+    ])
+
     for neurons in hidden_layers:
-        model.add(
-            tf.keras.layers.Dense(
-                units = neurons,
-                activation = activation
-            )
-        )
+        x = tf.keras.layers.Dense(
+            neurons,
+            activation = activation
+        )(x)
+
+    output = tf.keras.layers.Dense(1)(x)
     
-    # Output Layer
-    model.add(
-        tf.keras.layers.Dense(
-            units = 1,
-            activation = 'linear'
-        )
+    model = tf.keras.Model(
+        inputs = {
+            'sku_input': sku_input,
+            'features_input': features_input
+        },
+        outputs = output
     )
 
     # Optimizer selection
@@ -50,27 +76,12 @@ def build_model(
         'adagrad': tf.keras.optimizers.Adagrad
     }
 
-    selected_optimizer = optimizers[optimizer](
-        learning_rate = learning_rate
-    )
-
-    # Compile
     model.compile(
-        optimizer = selected_optimizer,
+        optimizer = optimizers[optimizer](
+            learning_rate = learning_rate
+        ),
         loss = 'mse',
         metrics = ['mae']
     )
 
     return model
-
-if __name__ == '__main__':
-    
-    from data import calculate_statistics
-    
-    statistics = calculate_statistics()
-    
-    input_dim = len(statistics['categories']) + 3
-    
-    model = build_model(input_dim)
-
-    model.summary()

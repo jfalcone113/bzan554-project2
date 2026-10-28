@@ -76,6 +76,7 @@ def calculate_statistics():
     maximums = None
 
     categories = set()
+    skus = set()
 
     columns = numerical_features + [target]
 
@@ -96,6 +97,7 @@ def calculate_statistics():
             maximums = maximums.combine(chunk_max, max)
         
         categories.update(chunk['category'].unique())
+        skus.update(chunk['sku'].dropna().unique())
         
     if minimums is None:
         raise ValueError('No training observations found.')
@@ -103,7 +105,11 @@ def calculate_statistics():
     return {
         'minimums': minimums,
         'maximums': maximums,
-        'categories': sorted(categories)
+        'categories': sorted(categories),
+        'sku_lookup': {
+            sku: index
+            for index, sku in enumerate(sorted(skus), start = 1)
+        }
     }
 
 # --------------------------------------------------
@@ -143,14 +149,29 @@ def preprocess_chunk(chunk, statistics):
 
     y = (y - y_min) / max(y_max - y_min, 1e-8)
 
-    return X, y.astype(np.float32)
+    sku_indices = (
+        chunk['sku']
+        .map(statistics['sku_lookup'])
+        .fillna(0)
+        .to_numpy(dtype = np.int32)
+        .reshape(-1,1)
+    )
+
+    inputs = {
+        'sku_input': sku_indices,
+        'features_input': X
+    }
+
+    return inputs, y.astype(np.float32)
 
 # --------------------------------------------------
 # Prepared Data Generator
 # --------------------------------------------------
 
 def data_generator(split, statistics, shuffle = False, seed = random_state):
+    
     rng = np.random.default_rng(seed)
+
     for chunk in load_split(split):
         if chunk.empty:
             continue
@@ -159,8 +180,10 @@ def data_generator(split, statistics, shuffle = False, seed = random_state):
 
         if shuffle:
             indices = rng.permutation(len(y))
-
-            X = X[indices]
+            X = {
+                name: values[indices]
+                for name, values in X.items()
+            }
             y = y[indices]
     
         yield X, y
@@ -187,11 +210,15 @@ if __name__ == '__main__':
 
     X, y = next(data_generator('train', statistics))
 
-    print('X shape:', X.shape)
+    print('SKU shape:', X['sku_input'].shape)
+    print('Features shape:', X['features_input'].shape)
     print('y shape:', y.shape)
 
-    print('\n First Observation:')
-    print(X[0])
+    print('\nFirst SKU index:')
+    print(X['sku_input'][0])
 
-    print('\nFirst Response:')
+    print('\nFirst observation features:')
+    print(X['features_input'][0])
+
+    print('\nFirst response:')
     print(y[0])
