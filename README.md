@@ -11,38 +11,42 @@ Goal: Identify the sensitivity of the algorithm to different kinds of tuning par
 | `category` | Categorical | Input |
 | `quantity` | Numerical | Response |
 
-
-| File / folder | Purpose |
-|---|---|
-| `AGENTS.md` | Assignment requirements and instructions for AI assistance |
-| `README.md` | Project overview, structure, setup, and run instructions |
-| `.gitignore` | Exclude confidential data, virtual environments, and temporary files from Git |
-| `.python-version` | Specify the Python version used |
-| `pyproject.toml` | Define project dependencies and configuration |
-| `uv.lock` | Record exact dependency versions for reproducibility |
-| `data/pricing.csv` | Source data used to predict quantity sold |
-|---|---|
-| `src/__init__.py` | Mark `src` as a Python package |
-| `src/data.py` | Load data incrementally, split it, and preprocess inputs using training statistics |
-| `src/model.py` | Build and compile a configurable neural network |
-| `src/train.py` | Train a model with selected settings and return its learning history |
-| `src/evaluate.py` | Calculate MSE, MAE, and R² for a specified data split |
-|---|---|
-| `experiments/__init__.py` | Mark `experiments` as a Python package |
-| `experiments/baseline.py` | Run and record the reference model for comparisons |
-| `experiments/batch_size.py` | Compare mini-batch sizes |
-| `experiments/hidden_layers.py` | Compare the number of hidden layers |
-| `experiments/hidden_neurons.py` | Compare neurons per hidden layer |
-| `experiments/activation_functions.py` | Compare hidden-layer activation functions |
-| `experiments/optimizers.py` | Compare optimization algorithms |
-| `experiments/learning_rates.py` | Compare learning rates |
-|---|---|
-| `results/metrics.csv` | Store each run’s settings, metrics, seed, and training time |
-| `results/histories/` | Store training and validation metrics by epoch for each run |
-| `results/figures/` | Store learning curves and tuning comparison charts |
-| `presentation/group_ID_assignment2.pptx` | Present tuning insights, training/testing details, and team contributions |
+| File / Folder | Purpose | Status |
+|---|---|---|
+| `AGENTS.md` | Assignment requirements and instructions for AI assistance | Keep |
+| `README.md` | Project overview, structure, setup, and execution instructions | Keep |
+| `.gitignore` | Exclude confidential data, virtual environments, and generated files from Git | Keep |
+| `.python-version` | Specify the Python version used | Keep |
+| `pyproject.toml` | Define project dependencies and configuration | Keep |
+| `uv.lock` | Record exact dependency versions for reproducibility | Keep |
+| `data/pricing.csv` | Source data used to predict quantity sold | Keep |
+| **Source Code** | | |
+| `src/__init__.py` | Mark `src` as a Python package | Keep |
+| `src/data.py` | Load data incrementally, split observations, preprocess inputs, and encode SKUs | Implemented |
+| `src/model.py` | Build and compile configurable neural networks, including SKU embeddings | Implemented |
+| `src/train.py` | Train incrementally, validate, track metrics, and restore the best model weights | Implemented |
+| `src/evaluate.py` | Calculate MSE, MAE, and R² on the original response scale | Implemented |
+| `src/tensorboard_logger.py` | Create TensorBoard writers and record training and validation metrics | Implemented |
+| `src/visualize.py` | Generate training curves and hyperparameter comparison figures | To implement |
+| **Experiments** | | |
+| `experiments/__init__.py` | Mark `experiments` as a Python package | Keep |
+| `experiments/utils.py` | Execute experiments and save configurations, metrics, and training histories | To implement |
+| `experiments/baseline.py` | Run and record the reference model for comparison | To implement |
+| `experiments/batch_size.py` | Compare mini-batch sizes | To implement |
+| `experiments/hidden_layers.py` | Compare the number of hidden layers | To implement |
+| `experiments/hidden_neurons.py` | Compare the number of neurons per hidden layer | To implement |
+| `experiments/activation_functions.py` | Compare hidden-layer activation functions | To implement |
+| `experiments/optimizers.py` | Compare optimization algorithms | To implement |
+| `experiments/learning_rates.py` | Compare learning rates | To implement |
+| **Outputs** | | |
+| `logs/` | Store TensorBoard event files for visualizing and comparing training runs | Implemented |
+| `results/metrics.csv` | Store experiment configurations, evaluation metrics, random seeds, and training times | To implement |
+| `results/histories/` | Store epoch-by-epoch training and validation metrics for each experiment | To implement |
+| `results/figures/` | Store learning curves and hyperparameter comparison charts | To implement |
+| `presentation/group_ID_assignment2.pptx` | Present model tuning, training/testing results, and team contributions | Keep |
 
 bzan554-project2/
+│
 ├── AGENTS.md
 ├── README.md
 ├── .gitignore
@@ -56,9 +60,11 @@ bzan554-project2/
 ├── src/
 │   ├── __init__.py
 │   ├── data.py
-│   ├── evaluate.py
 │   ├── model.py
-│   └── train.py
+│   ├── train.py
+│   ├── evaluate.py
+│   ├── tensorboard_logger.py
+│   └── visualize.py
 │
 ├── experiments/
 │   ├── __init__.py
@@ -69,6 +75,11 @@ bzan554-project2/
 │   ├── activation_functions.py
 │   ├── optimizers.py
 │   └── learning_rates.py
+│
+├── logs/
+│   ├── adam_sigmoid_...
+│   ├── adam_relu_...
+│   └── sgd_sigmoid_...
 │
 ├── results/
 │   ├── metrics.csv
