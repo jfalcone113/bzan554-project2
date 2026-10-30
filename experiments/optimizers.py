@@ -16,7 +16,7 @@ optimizers = [
 # Run Experiment
 # --------------------------------------------------
 if __name__ == '__main__':
-    for optimizer in optimizers.items():
+    for optimizer in optimizers:
         experiment_config = configuration.copy()
 
         experiment_config['optimizer'] = optimizer
