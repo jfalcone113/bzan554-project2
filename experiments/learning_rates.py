@@ -6,7 +6,15 @@ from experiments.baseline import configuration
 # --------------------------------------------------
 # Learning Rate Experiment
 # --------------------------------------------------
-learning_rates = np.arange(0.001, 0.5, 0.01)
+learning_rates = [
+    0.00001,
+    0.0001,
+    0.0005,
+    0.001,
+    0.005,
+    0.01,
+    0.1
+]
 
 # --------------------------------------------------
 # Run Experiments
