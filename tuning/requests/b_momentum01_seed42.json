@@ -1,0 +1,29 @@
+{
+  "config": {
+    "name": "b_momentum01",
+    "stage": "B",
+    "parent": "a_baseline",
+    "change": "momentum learning rate 0.01",
+    "widths": [
+      256,
+      128,
+      64
+    ],
+    "activation": "sigmoid",
+    "initializer": "glorot_uniform",
+    "bn": "none",
+    "hidden_dropout": 0.05,
+    "sku_dropout": 0.5,
+    "l1": 0.0,
+    "l2": 0.0001,
+    "optimizer": "momentum",
+    "lr": 0.01,
+    "schedule": "plateau",
+    "batch": 1024,
+    "max_epochs": 20,
+    "patience": 12,
+    "clip": 10.0
+  },
+  "seed": 42,
+  "folder": "/home/ianallish/Documents/bzan554-project/Project 2/tuning/runs/b_momentum01_seed42"
+}

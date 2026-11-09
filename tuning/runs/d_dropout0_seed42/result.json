@@ -1,0 +1,62 @@
+{
+  "name": "d_dropout0",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "d_dropout0",
+      "stage": "D",
+      "parent": "b_rmsprop001",
+      "change": "Hidden dropout 0",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "sigmoid",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.0,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "rmsprop",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 20,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 19,
+  "epochs_run": 20,
+  "updates": 6840,
+  "fit_seconds": 76.28704861999995,
+  "parameters": 1096335,
+  "trainable_parameters": 1096335,
+  "peak_process_rss_mib": 599.12109375,
+  "train": {
+    "n": 349975,
+    "r2": 0.6574436534348806,
+    "mse": 873.6332339251102,
+    "rmse": 29.5572873235199,
+    "mae": 12.631751256076615,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.6163760166080215,
+    "mse": 949.7882813804436,
+    "rmse": 30.81863529393285,
+    "mae": 13.46511777737135,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/d_dropout0_seed42/model.keras",
+  "optimizer_state_saved": false
+}

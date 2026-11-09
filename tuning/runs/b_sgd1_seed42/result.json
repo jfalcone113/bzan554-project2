@@ -1,0 +1,62 @@
+{
+  "name": "b_sgd1",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "b_sgd1",
+      "stage": "B",
+      "parent": "a_baseline",
+      "change": "sgd learning rate 0.1",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "sigmoid",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "sgd",
+      "lr": 0.1,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 20,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 19,
+  "epochs_run": 20,
+  "updates": 6840,
+  "fit_seconds": 69.60408883299988,
+  "parameters": 1096335,
+  "trainable_parameters": 1096335,
+  "peak_process_rss_mib": 579.6015625,
+  "train": {
+    "n": 349975,
+    "r2": 0.5739218590277559,
+    "mse": 1086.6417391908374,
+    "rmse": 32.964249410396675,
+    "mae": 13.10188579321163,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.5879224910153034,
+    "mse": 1020.2344118151742,
+    "rmse": 31.94110849383869,
+    "mae": 13.044357457193616,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/b_sgd1_seed42/model.keras",
+  "optimizer_state_saved": false
+}

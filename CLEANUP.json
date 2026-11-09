@@ -1,0 +1,99 @@
+{
+  "timestamp_utc": "2026-10-29T05:03:35.881877+00:00",
+  "authorization": "User explicitly requested removal of files/folders unused by the selected model/presentation, preserving resources.",
+  "verification_before_removal": {
+    "all_500000_predictions_identical": true,
+    "from_scratch_weights_bit_identical": true
+  },
+  "preserved": [
+    "model/",
+    "presentation/",
+    "data/",
+    "resources/",
+    "AGENTS.md",
+    "README.md",
+    "pyproject.toml",
+    "uv.lock",
+    ".gitignore",
+    "read-only .git/.agents/.codex/.aws"
+  ],
+  "course_references_moved_into_resources": [
+    "MODEL_TUNING_REFERENCE.md",
+    "CLASS_RESOURCES.md",
+    "CONTEXT_MANIFEST.json",
+    "PresentationRevised.qmd",
+    "class-notes-text/"
+  ],
+  "original_resources_hashes_verified_unchanged": {
+    "deep-slide-notes.md": "4699038c7194019c32dcff323044878f0c578977348df686b0997b9f6275a37d",
+    "deep-slide-notes.pdf": "ad221c4b8fa55ab0410fda9cea836769c5cab7e4057b85bbd0641e3ca72b2ea3",
+    "deep.pdf": "ea2ac29500e2d3535a76d841b1601bdeca94f4e061ce19aa756702708cebbf8f",
+    "fundamentals.pdf": "959b8d7cbb25f945f04aeb82cc3d43ebb3bf2729f577af4d11358694cfc17a28",
+    "introduction (2).pdf": "5a25242ddad4c231c39058a771bef164810f6d3fcbf0db7d0243c23b6eae75cd",
+    "Group_Assignment_2.pdf": "8bc752c54f8434a0e282279224b3a0661a43acb3594f63973c8be8a511a50ebe",
+    "deep.md": "177b0e61a6f47f231152f67bfef2a32633420fccf747e476e4b83507d9fa5588"
+  },
+  "removed": [
+    {
+      "path": "basic_model",
+      "files": 42,
+      "bytes": 34923278
+    },
+    {
+      "path": "restoration_study",
+      "files": 190,
+      "bytes": 134578985
+    },
+    {
+      "path": "output",
+      "files": 223,
+      "bytes": 284162830
+    },
+    {
+      "path": "reference",
+      "files": 11,
+      "bytes": 780245
+    },
+    {
+      "path": "tmp",
+      "files": 64,
+      "bytes": 41242844
+    },
+    {
+      "path": "tests",
+      "files": 2,
+      "bytes": 10964
+    },
+    {
+      "path": "__pycache__",
+      "files": 2,
+      "bytes": 80084
+    },
+    {
+      "path": "build_report.py",
+      "files": 1,
+      "bytes": 34267
+    },
+    {
+      "path": "tuning_study.py",
+      "files": 1,
+      "bytes": 24342
+    },
+    {
+      "path": "Group_6_Assignment_2.pdf",
+      "files": 1,
+      "bytes": 853497
+    },
+    {
+      "path": "Group_6_Assignment_2.qmd",
+      "files": 1,
+      "bytes": 15054
+    },
+    {
+      "path": "RESULTS_AND_STUDY_NOTES.md",
+      "files": 1,
+      "bytes": 6305
+    }
+  ],
+  "bytes_removed": 496712695
+}

@@ -1,0 +1,62 @@
+{
+  "name": "a_tanh",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "a_tanh",
+      "stage": "A",
+      "parent": "a_baseline",
+      "change": "Tanh activation",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "tanh",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 20,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 17,
+  "epochs_run": 20,
+  "updates": 6840,
+  "fit_seconds": 94.68445118300042,
+  "parameters": 1096335,
+  "trainable_parameters": 1096335,
+  "peak_process_rss_mib": 612.1171875,
+  "train": {
+    "n": 349975,
+    "r2": 0.6991807038152286,
+    "mse": 767.1897986657752,
+    "rmse": 27.698191252603035,
+    "mae": 11.974268730995238,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.6126568711474936,
+    "mse": 958.9962582747073,
+    "rmse": 30.967664721039384,
+    "mae": 13.597229520211865,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/a_tanh_seed42/model.keras",
+  "optimizer_state_saved": false
+}

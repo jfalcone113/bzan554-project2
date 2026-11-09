@@ -1,0 +1,11 @@
+{
+  "model/pricing_model.py": "00e2d2213fd7711129f99507c5f82d55b902ee6e42a1ed54c842ff1a0f983d9d",
+  "model/model.keras": "66d8c6949f504c0b66a2ff232b94d095a4818696643f2fa67369e681aaa6c181",
+  "model/preprocessing.json": "1cba25595d7bc5f080894643f06d5a7eb26386340086eab8c18b82fed303dd0d",
+  "model/seen.npz": "df93fa749f098357da69d7244be4310f4dba2eab8565da3eeb8468f966fc7e36",
+  "presentation/Presentation.pdf": "81e2927fbeb75a3b4f2405c7625f9163fd0ff06152fffe5fc81c4b429e5e805a",
+  "presentation/Presentation.qmd": "008614e18a300987ae5295dd0fe254d8d733dbdba31abcccbe63ef25c5b82838",
+  "pyproject.toml": "281dbb380d86a206b22f5017012c81f436837c17c39222db643c635632c00da5",
+  "uv.lock": "0d23d47ef70f1bb9c4d424949b3428c868c084d14553e7993cbf00426de3661f",
+  "resources/deep.md": "177b0e61a6f47f231152f67bfef2a32633420fccf747e476e4b83507d9fa5588"
+}

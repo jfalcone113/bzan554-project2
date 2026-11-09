@@ -1,0 +1,29 @@
+/home/ianallish/.config/matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /tmp/matplotlib-9dv65bsc because there was an issue with the default path (/home/ianallish/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+PASS: model metrics reproduce the saved reference within tolerance.
+{
+  "train": {
+    "n": 349975,
+    "r2": 0.6787730695334766,
+    "mse": 819.2360903579321,
+    "rmse": 28.622300577660283,
+    "mae": 11.48457940876948,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.6235091110531501,
+    "mse": 932.1279425922904,
+    "rmse": 30.530770422514568,
+    "mae": 12.508276266220728,
+    "target_mean": 22.760583922072364
+  },
+  "test": {
+    "n": 75289,
+    "r2": 0.6245345553250068,
+    "mse": 986.2526253222107,
+    "rmse": 31.404659293203782,
+    "mae": 12.741647125083727,
+    "target_mean": 23.208888416634565
+  }
+}

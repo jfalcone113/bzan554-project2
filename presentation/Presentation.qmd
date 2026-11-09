@@ -1,0 +1,186 @@
+---
+title: "Improving the Basic Model"
+subtitle: "BZAN 554 Group Assignment 2 · Group 6"
+author: "Joseph Falcone · Ian Allish · Will Schneider · Noah Hoogerheide"
+date: "October 29, 2026"
+format:
+  beamer:
+    slide-level: 2
+    aspectratio: 169
+    fontsize: 11pt
+    pdf-engine: xelatex
+    keep-tex: false
+header-includes:
+  - \setbeamertemplate{footline}[frame number]
+  - \setbeamertemplate{navigation symbols}{}
+---
+
+## How to read the comparisons
+
+- Keep earlier additions; report gains and regressions.
+- SKU dropout stays at **50%** after introduction.
+- All tests train for **up to 40 epochs**; early stopping may end runs sooner.
+- Step tables: same split, seed 42, batch 1,024.
+- Rows: **349,975 train / 74,736 validation / 75,289 test**.
+- Fit preprocessing on training data; select by validation.
+- Early steps use final weights; step 6 adds best-checkpoint selection.
+- Final confirmation: **three seeds** with the same training budget.
+
+## 0. Baseline
+
+Three sigmoid hidden layers: **256 / 128 / 64** neurons. SKU/category embeddings, standardized raw inputs, linear output, and Adam at 0.001.
+
+| Model | Validation $R^2$ | Validation RMSE |
+|:---|---:|---:|
+| Basic model | 0.3636 | 39.69 |
+
+No added feature engineering, dropout, L2, clipping, rate reductions, early stopping, or best-epoch selection.
+
+## 1. Add log features
+
+Add log1p versions of price, order, and duration alongside the raw inputs. Fit scaling on training data only.
+
+| Model | Validation $R^2$ | Validation RMSE |
+|:---|---:|---:|
+| Before addition | 0.3636 | 39.69 |
+| After addition | 0.3336 | 40.62 |
+
+**Change:** $R^2$ -0.0299, RMSE +0.92.
+
+## 2. Add square-root features
+
+Add square-root versions of price, order, and duration. The model now has nine numeric inputs.
+
+| Model | Validation $R^2$ | Validation RMSE |
+|:---|---:|---:|
+| Before addition | 0.3336 | 40.62 |
+| After addition | 0.3389 | 40.46 |
+
+**Change:** $R^2$ +0.0053, RMSE -0.16.
+
+## 3. Add hidden dropout
+
+Drop **5%** of activations after each hidden layer during training. Keep this rate in every later model.
+
+| Model | Validation $R^2$ | Validation RMSE |
+|:---|---:|---:|
+| Before addition | 0.3389 | 40.46 |
+| After addition | 0.4046 | 38.39 |
+
+**Change:** $R^2$ +0.0657, RMSE -2.06.
+
+## 4. Add SKU dropout
+
+Drop the whole SKU embedding for **50%** of training examples. Keep **50%** in every later model.
+
+| Model | Validation $R^2$ | Validation RMSE |
+|:---|---:|---:|
+| Before addition | 0.4046 | 38.39 |
+| After addition | 0.5837 | 32.10 |
+
+**Change:** $R^2$ +0.1791, RMSE -6.29.
+
+## 5. Add L2 penalties
+
+Add a **0.0001 L2 penalty** to hidden-layer kernels. Evaluation RMSE excludes the penalty.
+
+| Model | Validation $R^2$ | Validation RMSE |
+|:---|---:|---:|
+| Before addition | 0.5837 | 32.10 |
+| After addition | 0.5996 | 31.49 |
+
+**Change:** $R^2$ +0.0159, RMSE -0.62.
+
+## 6. Add validation-based training controls
+
+Keep the best validation checkpoint: **epoch 15**. This combined step also includes norm clipping at 10, learning-rate reductions, and early stopping with patience 12.
+
+| Model | Validation $R^2$ | Validation RMSE |
+|:---|---:|---:|
+| Before addition | 0.5996 | 31.49 |
+| After addition | 0.6177 | 30.77 |
+
+**Change:** $R^2$ +0.0181, RMSE -0.72.
+
+## 7. Switch Adam to RMSprop
+
+Switch **Adam to RMSprop**, keeping the initial learning rate at **0.001** and all other settings fixed.
+
+| Model | Validation $R^2$ | Validation RMSE |
+|:---|---:|---:|
+| Before addition | 0.6177 | 30.77 |
+| After addition | 0.6210 | 30.63 |
+
+**Change:** $R^2$ +0.0033, RMSE -0.13.
+
+## 8. Reduce the L2 penalty
+
+Lower the hidden-kernel L2 coefficient from **0.0001 to 0.00001**. Keep RMSprop and the previous settings.
+
+| Model | Validation $R^2$ | Validation RMSE |
+|:---|---:|---:|
+| Before addition | 0.6210 | 30.63 |
+| After addition | 0.6217 | 30.60 |
+
+**Change:** $R^2$ +0.0007, RMSE -0.03.
+
+## Confirm the improvement across three seeds
+
+**Compare seed 42 with the three-seed average.**
+
+| Configuration | Seed 42: $R^2$ | 3-seed mean: $R^2$ |
+|:---|---:|---:|
+| Adam + L2 0.0001 (step 6) | 0.6177 | 0.6170 |
+| RMSprop + L2 0.00001 (step 8) | 0.6217 | 0.6222 |
+
+**Matched confirmation gain:** mean $R^2$ **+0.0053**, positive in **all three seeds**.
+
+The seed-42 scores continue directly from steps 6 and 8. The right column averages seeds 42, 101, and 202.
+
+## Final model: distinguish the reported scores
+
+**Chosen configuration:** RMSprop + L2 0.00001 (step 8).
+
+**Packaged checkpoint:** seed 202, epoch 26; selected using validation.
+
+| Reported score | $R^2$ | RMSE | MAE |
+|:---|---:|---:|---:|
+| Three-seed mean validation | 0.6222 | 30.58 | -- |
+| Selected checkpoint: validation | 0.6235 | 30.53 | 12.51 |
+| Selected checkpoint: test | 0.6245 | 31.40 | 12.74 |
+
+The mean summarizes repeatability across seeds. The other rows evaluate the saved checkpoint on validation and test data.
+
+## Other experiments: changes that did not help
+
+**Each test starts from the same RMSprop model.**
+
+| Tested change | Before $R^2$ | After $R^2$ | Change |
+|:---|---:|---:|---:|
+| Seven sigmoid layers | 0.6210 | $\approx 0$ | -0.6210 |
+| L2 penalty 0.001 | 0.6210 | 0.5981 | -0.0229 |
+| Batch size 4,096 | 0.6210 | 0.6194 | -0.0016 |
+| Batch norm before activation | 0.6210 | 0.6156 | -0.0054 |
+
+**Matched parent:** RMSprop with L2 0.0001, validation $R^2$ **0.6210**. Each row changes one setting from this model; the changes do not accumulate. Same split, seed 42, and training budget.
+
+## Evaluation
+
+- RMSE uses supplied quantity units and excludes L2 penalties.
+- Validation selects settings; test scoring follows frozen selection. The test set has historical exposure.
+- Predictions describe completed selling episodes, not advance forecasts.
+- Results apply to this setup and budget; all trials remain logged.
+
+
+Exact tuning values and whole-SKU masking are project choices.
+
+## Team contributions
+
+| Team member | Contribution |
+|:---|:---|
+| Ian Allish | [To be filled in] |
+| Joseph Falcone | [To be filled in] |
+| Will Schneider | [To be filled in] |
+| Noah Hoogerheide | [To be filled in] |
+
+**AI assistance:** Codex implemented the experiments and logged the results

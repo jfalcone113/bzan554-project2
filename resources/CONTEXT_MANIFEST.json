@@ -1,0 +1,46 @@
+{
+  "AGENTS.md": {
+    "bytes": 5636,
+    "sha256": "ddbfa165657a2473b01bbc6323255f3c4de2b34fc8965ec040eaa5e048159744"
+  },
+  "MODEL_TUNING_REFERENCE.md": {
+    "bytes": 19538,
+    "sha256": "08b5e772f280df84a3ca9e3d12a8b3fdc3fdddbb1fc6a9ef9050d2c6b2b9143e"
+  },
+  "CLASS_RESOURCES.md": {
+    "bytes": 10332,
+    "sha256": "23153efe2f54e1597364c4c7b40f92f5a8087f7fa24cbe77895bf2ce3266c9c3"
+  },
+  "introduction (2).pdf": {
+    "bytes": 877108,
+    "sha256": "5a25242ddad4c231c39058a771bef164810f6d3fcbf0db7d0243c23b6eae75cd"
+  },
+  "fundamentals.pdf": {
+    "bytes": 2345761,
+    "sha256": "959b8d7cbb25f945f04aeb82cc3d43ebb3bf2729f577af4d11358694cfc17a28"
+  },
+  "deep.pdf": {
+    "bytes": 2033092,
+    "sha256": "ea2ac29500e2d3535a76d841b1601bdeca94f4e061ce19aa756702708cebbf8f"
+  },
+  "deep-slide-notes.md": {
+    "bytes": 53656,
+    "sha256": "4699038c7194019c32dcff323044878f0c578977348df686b0997b9f6275a37d"
+  },
+  "deep-slide-notes.pdf": {
+    "bytes": 125412,
+    "sha256": "ad221c4b8fa55ab0410fda9cea836769c5cab7e4057b85bbd0641e3ca72b2ea3"
+  },
+  "class-notes-text/deep.txt": {
+    "bytes": 99494,
+    "sha256": "62cff85323ee6095b65747b5414c36527e20cb66faf12d6003d2be1185d17206"
+  },
+  "class-notes-text/fundamentals.txt": {
+    "bytes": 185785,
+    "sha256": "5168552c4fe34c429464a2ebaba01f26537af5b84fff160437ce9a6c70a2e954"
+  },
+  "class-notes-text/introduction.txt": {
+    "bytes": 41079,
+    "sha256": "dc0a37153c2e4e4f94ca4b23eed3322fc89a96de593cb7fba6f8337a74ca8456"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "pdf_pages": 16,
+  "visual_review": "Repeated cap40 labels removed; one methods statement explains all tests train up to40 epochs with possible early stopping. Methods and confirmation slides visually inspected; all PDF text bounds checked.",
+  "geometry": "All extracted words within page boundaries.",
+  "numeric_check": "Nine current stage inputs source-checked against new/reused 40-cap logs; 10/10 new fits reproduce original epoch20 validation R2 within 0.00001. Seven transitions gain; log-only transition regresses and is reported. Three-seed confirmation and selected checkpoint evidence unchanged.",
+  "non_improving_comparisons": "Four RMSprop-parent tests use cap40 and common baseline R2 0.6209660856995172; all four lower.",
+  "pending": "Team contributions remain placeholders.",
+  "pdf_sha256": "fff17b61e28b0a779b277aaec0f1ea543569cc62b70c47be4f8336e9fb66e7a9"
+}

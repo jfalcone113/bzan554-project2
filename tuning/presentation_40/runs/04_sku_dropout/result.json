@@ -1,0 +1,58 @@
+{
+  "name": "04_sku_dropout",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "04_sku_dropout",
+      "parent": "03_hidden_dropout",
+      "change": "Add 50% whole-SKU embedding dropout",
+      "transforms": 2,
+      "dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l2": 0.0,
+      "clip": 0.0,
+      "reduce_lr": false,
+      "early_stop": false,
+      "checkpoint": false,
+      "link": "linear",
+      "use_sku": true,
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "embedding": 8,
+      "lr": 0.001
+    },
+    "seed": 42,
+    "max_epochs": 40,
+    "split_seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "script_sha256": "77cfa5fa56501631f73e3b5f113538be204f8a6bd25512298721615824143e43"
+  },
+  "train": {
+    "n": 349975,
+    "r2": 0.7090165084636482,
+    "mse": 742.1052077381308,
+    "rmse": 27.24160802408938,
+    "mae": 10.954150635137312,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.583711542994968,
+    "mse": 1030.6600089007716,
+    "rmse": 32.103893983452714,
+    "mae": 12.617006968773042,
+    "target_mean": 22.76058392207236
+  },
+  "selected_epoch": 40,
+  "best_observed_epoch": 15,
+  "epochs_run": 40,
+  "updates": 13680,
+  "parameters": 1096335,
+  "fit_seconds": 156.1714440290002,
+  "checkpoint": "tuning/presentation_40/runs/04_sku_dropout/model.keras",
+  "reproduction_20_epoch_passed": true
+}

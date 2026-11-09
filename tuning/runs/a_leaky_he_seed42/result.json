@@ -1,0 +1,62 @@
+{
+  "name": "a_leaky_he",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "a_leaky_he",
+      "stage": "A",
+      "parent": "a_baseline",
+      "change": "Leaky ReLU slope .01 and He initialization",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "leaky_relu",
+      "initializer": "he_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 20,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 16,
+  "epochs_run": 20,
+  "updates": 6840,
+  "fit_seconds": 90.52897619800024,
+  "parameters": 1096335,
+  "trainable_parameters": 1096335,
+  "peak_process_rss_mib": 611.70703125,
+  "train": {
+    "n": 349975,
+    "r2": 0.7105526590106166,
+    "mse": 738.1875101575699,
+    "rmse": 27.16960636736517,
+    "mae": 11.029797430231245,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.6093449436868499,
+    "mse": 967.1960320820904,
+    "rmse": 31.099775434592615,
+    "mae": 12.522951772664197,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/a_leaky_he_seed42/model.keras",
+  "optimizer_state_saved": false
+}

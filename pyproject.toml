@@ -1,17 +1,15 @@
 [project]
-name = "bzan554-project2"
+name = "incremental-pricing-assignment"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-authors = [
-    { name = "Joseph Falcone", email = "joefalcone13@icloud.com" }
-]
-requires-python = ">=3.14"
+description = "Bounded-memory TensorFlow regression and assignment presentation"
+requires-python = ">=3.12,<3.13"
 dependencies = [
-    "matplotlib>=3.11.2",
-    "numpy>=2.5.4",
-    "pandas>=3.1.0",
-    "scikit-learn>=1.9.1",
-    "tensorboard>=2.21.0",
-    "tensorflow>=2.22.0rc0",
+  "tensorflow-cpu==2.20.0; sys_platform == 'linux'",
+  "tensorflow==2.20.0; sys_platform != 'linux'",
+  "numpy>=2.1,<2.3",
+  "pandas==2.3.3",
+  "matplotlib==3.10.8",
+  "psutil==7.2.2",
+  "reportlab==4.4.10",
 ]
+

@@ -1,0 +1,85 @@
+{
+  "configs": [
+    {
+      "name": "e_baseline",
+      "stage": "E",
+      "parent": "a_baseline",
+      "change": "Baseline under matched 40-epoch confirmation budget",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "sigmoid",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 40,
+      "patience": 12,
+      "clip": 10.0
+    },
+    {
+      "name": "e_finalist1",
+      "stage": "E",
+      "parent": "d_l2_low",
+      "change": "Confirm screening configuration d_l2_low",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "sigmoid",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 1e-05,
+      "optimizer": "rmsprop",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 40,
+      "patience": 12,
+      "clip": 10.0
+    },
+    {
+      "name": "e_finalist2",
+      "stage": "E",
+      "parent": "b_rmsprop001",
+      "change": "Confirm screening configuration b_rmsprop001",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "sigmoid",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "rmsprop",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 40,
+      "patience": 12,
+      "clip": 10.0
+    }
+  ],
+  "seeds": [
+    42,
+    101,
+    202
+  ],
+  "frozen_before_fits": true
+}

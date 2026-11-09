@@ -1,0 +1,45 @@
+{
+  "comparison": "All four displayed branches use seed42 and cap40, matched to RMSprop L2 .0001 confirmation.",
+  "rows": [
+    {
+      "change": "Seven sigmoid layers",
+      "trial": "c_seven",
+      "parent": "b_rmsprop001",
+      "seed": 42,
+      "epoch_cap": 40,
+      "baseline_r2": 0.6209660856995172,
+      "result_r2": -3.3097127483117106e-08,
+      "delta_r2": -0.6209661187966447
+    },
+    {
+      "change": "L2 penalty 0.001",
+      "trial": "d_l2_high",
+      "parent": "b_rmsprop001",
+      "seed": 42,
+      "epoch_cap": 40,
+      "baseline_r2": 0.6209660856995172,
+      "result_r2": 0.5980591476797378,
+      "delta_r2": -0.022906938019779388
+    },
+    {
+      "change": "Batch size 4,096",
+      "trial": "d_batch4096",
+      "parent": "b_rmsprop001",
+      "seed": 42,
+      "epoch_cap": 40,
+      "baseline_r2": 0.6209660856995172,
+      "result_r2": 0.6194025541768081,
+      "delta_r2": -0.0015635315227090496
+    },
+    {
+      "change": "Batch norm before activation",
+      "trial": "c_bn_before",
+      "parent": "b_rmsprop001",
+      "seed": 42,
+      "epoch_cap": 40,
+      "baseline_r2": 0.6209660856995172,
+      "result_r2": 0.615602524901778,
+      "delta_r2": -0.005363560797739142
+    }
+  ]
+}

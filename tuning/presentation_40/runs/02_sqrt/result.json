@@ -1,0 +1,58 @@
+{
+  "name": "02_sqrt",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "02_sqrt",
+      "parent": "01_log",
+      "change": "Add square-root features",
+      "transforms": 2,
+      "dropout": 0.0,
+      "sku_dropout": 0.0,
+      "l2": 0.0,
+      "clip": 0.0,
+      "reduce_lr": false,
+      "early_stop": false,
+      "checkpoint": false,
+      "link": "linear",
+      "use_sku": true,
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "embedding": 8,
+      "lr": 0.001
+    },
+    "seed": 42,
+    "max_epochs": 40,
+    "split_seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "script_sha256": "77cfa5fa56501631f73e3b5f113538be204f8a6bd25512298721615824143e43"
+  },
+  "train": {
+    "n": 349975,
+    "r2": 0.8119219895962172,
+    "mse": 479.66181945492576,
+    "rmse": 21.901183060623136,
+    "mae": 8.879568366293174,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.3389073543495832,
+    "mse": 1636.7538916459966,
+    "rmse": 40.45681514462053,
+    "mae": 13.714792655816401,
+    "target_mean": 22.76058392207236
+  },
+  "selected_epoch": 40,
+  "best_observed_epoch": 3,
+  "epochs_run": 40,
+  "updates": 13680,
+  "parameters": 1096335,
+  "fit_seconds": 134.30865390299982,
+  "checkpoint": "tuning/presentation_40/runs/02_sqrt/model.keras",
+  "reproduction_20_epoch_passed": true
+}

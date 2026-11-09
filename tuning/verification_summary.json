@@ -1,0 +1,27 @@
+{
+  "completed_fits": 42,
+  "failed_fits": 0,
+  "screen_fits": 33,
+  "confirmation_fits": 9,
+  "unit_tests": "5 passed before training; verification.log",
+  "mean_validation_r2_gain": 0.005295331802787739,
+  "paired_seed_wins": 3,
+  "user_acceptance": {
+    "criterion": "Positive mean validation R2 gain under matched confirmation budgets, with improvement in at least two paired seeds.",
+    "supersedes_original_threshold": true,
+    "paired_seed_wins": 3,
+    "accepted": true,
+    "does_not_change_configuration_or_checkpoint_selection": true
+  },
+  "configuration_selection": "Three-seed mean validation MSE; selected inference seed by validation MSE.",
+  "checkpoint_copy_sha256": "fa283f9dee4ffce2ae9a27eac36f42aff3ba84c5c0e82534720a34c107a02615",
+  "normal_prediction_cli_verification_passed": true,
+  "reload_validation_verified": true,
+  "old_model_code_and_checkpoint_unchanged": true,
+  "resources_deep_md_unchanged": true,
+  "presentation": "13 pages, all visually inspected; nine step configurations have strictly increasing validation R2; no text outside page boundaries.",
+  "presentation_pdf_sha256": "0363f6a0db908bfaa591a77eb5b286f595fe31a7161e5941d3e62ab57c536611",
+  "budget_note": "33 seed-42 screening fits capped at 20 epochs; 9 matched three-seed confirmation fits capped at 40. Actual stopping varies; each epoch/update/runtime recorded.",
+  "fit_minutes_sum": 75.49707490740008,
+  "test_policy": "Frozen selection before new test evaluation. Historical test exposure acknowledged."
+}

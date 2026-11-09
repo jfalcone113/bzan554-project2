@@ -1,0 +1,56 @@
+{
+  "selection": "Five largest declines across distinct tested parameter families: depth/architecture, optimizer/rate, L2, batch size, and batch normalization.",
+  "comparison": "Each trial uses its own matched parent baseline; baseline is not the raw basic model. All comparisons use seed 42 and cap 20.",
+  "rows": [
+    {
+      "change": "Seven sigmoid layers",
+      "trial": "c_seven",
+      "parent": "b_rmsprop001",
+      "seed": 42,
+      "epoch_cap": 20,
+      "baseline_r2": 0.6187002647844071,
+      "result_r2": -5.656134024922821e-06,
+      "delta_r2": -0.618705920918432
+    },
+    {
+      "change": "Plain SGD, rate 0.01",
+      "trial": "b_sgd01",
+      "parent": "a_baseline",
+      "seed": 42,
+      "epoch_cap": 20,
+      "baseline_r2": 0.6176738572961331,
+      "result_r2": 0.49240534158871774,
+      "delta_r2": -0.12526851570741537
+    },
+    {
+      "change": "L2 penalty 0.001",
+      "trial": "d_l2_high",
+      "parent": "b_rmsprop001",
+      "seed": 42,
+      "epoch_cap": 20,
+      "baseline_r2": 0.6187002647844071,
+      "result_r2": 0.58550588402056,
+      "delta_r2": -0.033194380763847064
+    },
+    {
+      "change": "Batch size 4,096",
+      "trial": "d_batch4096",
+      "parent": "b_rmsprop001",
+      "seed": 42,
+      "epoch_cap": 20,
+      "baseline_r2": 0.6187002647844071,
+      "result_r2": 0.5992087263157507,
+      "delta_r2": -0.019491538468656366
+    },
+    {
+      "change": "Batch norm before activation",
+      "trial": "c_bn_before",
+      "parent": "b_rmsprop001",
+      "seed": 42,
+      "epoch_cap": 20,
+      "baseline_r2": 0.6187002647844071,
+      "result_r2": 0.6013968627383328,
+      "delta_r2": -0.01730340204607428
+    }
+  ]
+}

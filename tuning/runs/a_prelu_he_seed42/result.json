@@ -1,0 +1,62 @@
+{
+  "name": "a_prelu_he",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "a_prelu_he",
+      "stage": "A",
+      "parent": "a_baseline",
+      "change": "Learned PReLU and He initialization",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "prelu",
+      "initializer": "he_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 20,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 13,
+  "epochs_run": 20,
+  "updates": 6840,
+  "fit_seconds": 105.8921673650002,
+  "parameters": 1096783,
+  "trainable_parameters": 1096783,
+  "peak_process_rss_mib": 619.65234375,
+  "train": {
+    "n": 349975,
+    "r2": 0.7120738132281077,
+    "mse": 734.3080582319205,
+    "rmse": 27.098119090297033,
+    "mae": 11.115561966069366,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.6137600478762297,
+    "mse": 956.2649787546399,
+    "rmse": 30.92353438329196,
+    "mae": 12.547246081546808,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/a_prelu_he_seed42/model.keras",
+  "optimizer_state_saved": false
+}

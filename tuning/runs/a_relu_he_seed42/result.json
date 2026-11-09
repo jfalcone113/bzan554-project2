@@ -1,0 +1,62 @@
+{
+  "name": "a_relu_he",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "a_relu_he",
+      "stage": "A",
+      "parent": "a_baseline",
+      "change": "ReLU and He fan-in initialization",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "relu",
+      "initializer": "he_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 20,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 16,
+  "epochs_run": 20,
+  "updates": 6840,
+  "fit_seconds": 89.15734572200017,
+  "parameters": 1096335,
+  "trainable_parameters": 1096335,
+  "peak_process_rss_mib": 612.53125,
+  "train": {
+    "n": 349975,
+    "r2": 0.7225665065082102,
+    "mse": 707.5481816311883,
+    "rmse": 26.599777849282656,
+    "mae": 10.845426253168844,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.6117873195139178,
+    "mse": 961.1491214620474,
+    "rmse": 31.002405091573902,
+    "mae": 12.58426090128747,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/a_relu_he_seed42/model.keras",
+  "optimizer_state_saved": false
+}

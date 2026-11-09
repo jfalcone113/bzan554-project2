@@ -1,0 +1,20 @@
+{
+  "tensorflow": "2.20.0",
+  "keras": "3.15.1",
+  "numpy": "2.2.6",
+  "pandas": "2.3.3",
+  "python": "3.12.13",
+  "cpu_count": 8,
+  "device": "CPU",
+  "installed_api_signatures": {
+    "LeakyReLU": "(negative_slope=0.3, **kwargs)",
+    "PReLU": "(alpha_initializer='Zeros', alpha_regularizer=None, alpha_constraint=None, shared_axes=None, **kwargs)",
+    "BatchNormalization": "(axis=-1, momentum=0.99, epsilon=0.001, center=True, scale=True, beta_initializer='zeros', gamma_initializer='ones', moving_mean_initializer='zeros', moving_variance_initializer='ones', beta_regularizer=None, gamma_regularizer=None, beta_constraint=None, gamma_constraint=None, renorm=False, renorm_clipping=None, renorm_momentum=0.99, synchronized=False, **kwargs)",
+    "SGD": "(learning_rate=0.01, momentum=0.0, nesterov=False, weight_decay=None, clipnorm=None, clipvalue=None, global_clipnorm=None, use_ema=False, ema_momentum=0.99, ema_overwrite_frequency=None, loss_scale_factor=None, gradient_accumulation_steps=None, name=None, **kwargs)",
+    "Adagrad": "(learning_rate=0.001, initial_accumulator_value=0.1, epsilon=1e-07, weight_decay=None, clipnorm=None, clipvalue=None, global_clipnorm=None, use_ema=False, ema_momentum=0.99, ema_overwrite_frequency=None, loss_scale_factor=None, gradient_accumulation_steps=None, name=None, **kwargs)",
+    "RMSprop": "(learning_rate=0.001, rho=0.9, momentum=0.0, epsilon=1e-07, centered=False, weight_decay=None, clipnorm=None, clipvalue=None, global_clipnorm=None, use_ema=False, ema_momentum=0.99, ema_overwrite_frequency=None, loss_scale_factor=None, gradient_accumulation_steps=None, name=None, **kwargs)",
+    "Adam": "(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, amsgrad=False, weight_decay=None, clipnorm=None, clipvalue=None, global_clipnorm=None, use_ema=False, ema_momentum=0.99, ema_overwrite_frequency=None, loss_scale_factor=None, gradient_accumulation_steps=None, name=None, **kwargs)",
+    "ExponentialDecay": "(initial_learning_rate, decay_steps, decay_rate, staircase=False, name='ExponentialDecay')"
+  },
+  "clipnorm_implementation": "    def _clip_gradients(self, grads):\n        if self.clipnorm and self.clipnorm > 0:\n            return [\n                self._clip_by_norm(g) if g is not None else g for g in grads\n            ]\n        elif self.global_clipnorm and self.global_clipnorm > 0:\n            return clip_by_global_norm(grads, self.global_clipnorm)\n        elif self.clipvalue and self.clipvalue > 0:\n            v = self.clipvalue\n            return [ops.clip(g, -v, v) if g is not None else g for g in grads]\n        else:\n            return grads\n"
+}

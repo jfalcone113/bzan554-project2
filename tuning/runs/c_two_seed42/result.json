@@ -1,0 +1,61 @@
+{
+  "name": "c_two",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "c_two",
+      "stage": "C",
+      "parent": "b_rmsprop001",
+      "change": "Hidden widths [128, 64]",
+      "widths": [
+        128,
+        64
+      ],
+      "activation": "sigmoid",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "rmsprop",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 20,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 16,
+  "epochs_run": 20,
+  "updates": 6840,
+  "fit_seconds": 54.16580019100002,
+  "parameters": 1060367,
+  "trainable_parameters": 1060367,
+  "peak_process_rss_mib": 597.68359375,
+  "train": {
+    "n": 349975,
+    "r2": 0.6531009111402006,
+    "mse": 884.7086789812226,
+    "rmse": 29.744052833822472,
+    "mae": 11.769187100155198,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.618135647233089,
+    "mse": 945.4317327296791,
+    "rmse": 30.74787362940207,
+    "mae": 12.490289868072738,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/c_two_seed42/model.keras",
+  "optimizer_state_saved": false
+}

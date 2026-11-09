@@ -1,0 +1,27 @@
+{
+  "config": {
+    "name": "c_one",
+    "stage": "C",
+    "parent": "b_rmsprop001",
+    "change": "Hidden widths [128]",
+    "widths": [
+      128
+    ],
+    "activation": "sigmoid",
+    "initializer": "glorot_uniform",
+    "bn": "none",
+    "hidden_dropout": 0.05,
+    "sku_dropout": 0.5,
+    "l1": 0.0,
+    "l2": 0.0001,
+    "optimizer": "rmsprop",
+    "lr": 0.001,
+    "schedule": "plateau",
+    "batch": 1024,
+    "max_epochs": 20,
+    "patience": 12,
+    "clip": 10.0
+  },
+  "seed": 42,
+  "folder": "/home/ianallish/Documents/bzan554-project/Project 2/tuning/runs/c_one_seed42"
+}

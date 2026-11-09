@@ -1,0 +1,62 @@
+{
+  "name": "e_baseline",
+  "seed": 202,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "e_baseline",
+      "stage": "E",
+      "parent": "a_baseline",
+      "change": "Baseline under matched 40-epoch confirmation budget",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "sigmoid",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 40,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 202,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 24,
+  "epochs_run": 36,
+  "updates": 12312,
+  "fit_seconds": 171.21685770600016,
+  "parameters": 1096335,
+  "trainable_parameters": 1096335,
+  "peak_process_rss_mib": 611.48828125,
+  "train": {
+    "n": 349975,
+    "r2": 0.7070808737742424,
+    "mse": 747.0417234686362,
+    "rmse": 27.33206401771802,
+    "mae": 11.146016347089303,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.6161548313683174,
+    "mse": 950.3358987291501,
+    "rmse": 30.827518530189064,
+    "mae": 12.634363951391594,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/e_baseline_seed202/model.keras",
+  "optimizer_state_saved": false
+}

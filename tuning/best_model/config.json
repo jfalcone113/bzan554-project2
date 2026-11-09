@@ -1,0 +1,25 @@
+{
+  "name": "e_finalist1",
+  "stage": "E",
+  "parent": "d_l2_low",
+  "change": "Confirm screening configuration d_l2_low",
+  "widths": [
+    256,
+    128,
+    64
+  ],
+  "activation": "sigmoid",
+  "initializer": "glorot_uniform",
+  "bn": "none",
+  "hidden_dropout": 0.05,
+  "sku_dropout": 0.5,
+  "l1": 0.0,
+  "l2": 1e-05,
+  "optimizer": "rmsprop",
+  "lr": 0.001,
+  "schedule": "plateau",
+  "batch": 1024,
+  "max_epochs": 40,
+  "patience": 12,
+  "clip": 10.0
+}

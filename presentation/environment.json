@@ -1,0 +1,9 @@
+{
+  "tensorflow": "2.20.0",
+  "keras": "3.15.1",
+  "python": "3.12.13 (main, Jun 23 2026, 15:18:55) [Clang 22.1.3 ]",
+  "device": "CPU",
+  "threads": 4,
+  "Adam_signature": "(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, amsgrad=False, weight_decay=None, clipnorm=None, clipvalue=None, global_clipnorm=None, use_ema=False, ema_momentum=0.99, ema_overwrite_frequency=None, loss_scale_factor=None, gradient_accumulation_steps=None, name=None, **kwargs)",
+  "script_sha256": "8ae535ec5a9cf19d0c9767ebc75dbdadffebe2d7bb04a973ef9c40898a3f30cf"
+}

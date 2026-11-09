@@ -1,0 +1,539 @@
+[
+  {
+    "name": "00_basic",
+    "seed": 42,
+    "signature": {
+      "config": {
+        "name": "00_basic",
+        "parent": "",
+        "change": "Fresh basic model",
+        "transforms": 0,
+        "dropout": 0.0,
+        "sku_dropout": 0.0,
+        "l2": 0.0,
+        "clip": 0.0,
+        "reduce_lr": false,
+        "early_stop": false,
+        "checkpoint": false,
+        "link": "linear",
+        "use_sku": true,
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "embedding": 8,
+        "lr": 0.001
+      },
+      "seed": 42,
+      "max_epochs": 20,
+      "patience": 12,
+      "batch": 1024,
+      "split_seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "script_sha256": "8ae535ec5a9cf19d0c9767ebc75dbdadffebe2d7bb04a973ef9c40898a3f30cf"
+    },
+    "train": {
+      "n": 349975,
+      "r2": 0.7644997285073185,
+      "mse": 600.6044431446021,
+      "rmse": 24.50723246604157,
+      "mae": 10.126832169405315,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.4216907202075335,
+      "mse": 1431.7962399113496,
+      "rmse": 37.839083497243294,
+      "mae": 14.415720660868715,
+      "target_mean": 22.76058392207236
+    },
+    "epochs_run": 20,
+    "best_observed_epoch": 6,
+    "selected_epoch": 20,
+    "updates": 6840,
+    "fit_seconds": 74.86388000800002,
+    "parameters": 1094799,
+    "source_checkpoint": "restoration_study/runs/00_basic_seed42/model.keras",
+    "source_checkpoint_note": "Original experiment provenance only; these superseded trial models are not required to build this presentation."
+  },
+  {
+    "name": "01_log",
+    "seed": 42,
+    "signature": {
+      "config": {
+        "name": "01_log",
+        "parent": "00_basic",
+        "change": "Add log1p features (price multiplied by 100 before log1p)",
+        "transforms": 1,
+        "dropout": 0.0,
+        "sku_dropout": 0.0,
+        "l2": 0.0,
+        "clip": 0.0,
+        "reduce_lr": false,
+        "early_stop": false,
+        "checkpoint": false,
+        "link": "linear",
+        "use_sku": true,
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "embedding": 8,
+        "lr": 0.001
+      },
+      "seed": 42,
+      "max_epochs": 20,
+      "patience": 12,
+      "batch": 1024,
+      "split_seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "script_sha256": "8ae535ec5a9cf19d0c9767ebc75dbdadffebe2d7bb04a973ef9c40898a3f30cf"
+    },
+    "train": {
+      "n": 349975,
+      "r2": 0.7860388725368898,
+      "mse": 545.6724232208202,
+      "rmse": 23.359632343442826,
+      "mae": 9.50992251703216,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.4590580243443976,
+      "mse": 1339.2810971870522,
+      "rmse": 36.59618965393873,
+      "mae": 13.600426552140517,
+      "target_mean": 22.76058392207236
+    },
+    "epochs_run": 20,
+    "best_observed_epoch": 3,
+    "selected_epoch": 20,
+    "updates": 6840,
+    "fit_seconds": 75.48990651200006,
+    "parameters": 1095567,
+    "source_checkpoint": "restoration_study/runs/01_log_seed42/model.keras",
+    "source_checkpoint_note": "Original experiment provenance only; these superseded trial models are not required to build this presentation."
+  },
+  {
+    "name": "02_sqrt",
+    "seed": 42,
+    "signature": {
+      "config": {
+        "name": "02_sqrt",
+        "parent": "01_log",
+        "change": "Add square-root features",
+        "transforms": 2,
+        "dropout": 0.0,
+        "sku_dropout": 0.0,
+        "l2": 0.0,
+        "clip": 0.0,
+        "reduce_lr": false,
+        "early_stop": false,
+        "checkpoint": false,
+        "link": "linear",
+        "use_sku": true,
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "embedding": 8,
+        "lr": 0.001
+      },
+      "seed": 42,
+      "max_epochs": 20,
+      "patience": 12,
+      "batch": 1024,
+      "split_seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "script_sha256": "8ae535ec5a9cf19d0c9767ebc75dbdadffebe2d7bb04a973ef9c40898a3f30cf"
+    },
+    "train": {
+      "n": 349975,
+      "r2": 0.7855090665445187,
+      "mse": 547.0236056674721,
+      "rmse": 23.38853577433765,
+      "mae": 9.532424309637404,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.45930082236366643,
+      "mse": 1338.6799702413255,
+      "rmse": 36.58797576036867,
+      "mae": 13.641872578809563,
+      "target_mean": 22.76058392207236
+    },
+    "epochs_run": 20,
+    "best_observed_epoch": 3,
+    "selected_epoch": 20,
+    "updates": 6840,
+    "fit_seconds": 76.32325058300012,
+    "parameters": 1096335,
+    "source_checkpoint": "restoration_study/runs/02_sqrt_seed42/model.keras",
+    "source_checkpoint_note": "Original experiment provenance only; these superseded trial models are not required to build this presentation."
+  },
+  {
+    "name": "03_hidden_dropout",
+    "seed": 42,
+    "signature": {
+      "config": {
+        "name": "03_hidden_dropout",
+        "parent": "02_sqrt",
+        "change": "Add 5% dropout after each hidden layer",
+        "transforms": 2,
+        "dropout": 0.05,
+        "sku_dropout": 0.0,
+        "l2": 0.0,
+        "clip": 0.0,
+        "reduce_lr": false,
+        "early_stop": false,
+        "checkpoint": false,
+        "link": "linear",
+        "use_sku": true,
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "embedding": 8,
+        "lr": 0.001
+      },
+      "seed": 42,
+      "max_epochs": 20,
+      "patience": 12,
+      "batch": 1024,
+      "split_seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "script_sha256": "8ae535ec5a9cf19d0c9767ebc75dbdadffebe2d7bb04a973ef9c40898a3f30cf"
+    },
+    "train": {
+      "n": 349975,
+      "r2": 0.7811838365612233,
+      "mse": 558.0543884734707,
+      "rmse": 23.62317481782393,
+      "mae": 9.887628981601647,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.48681167859990626,
+      "mse": 1270.5677301439064,
+      "rmse": 35.64502391840839,
+      "mae": 13.572288585319123,
+      "target_mean": 22.76058392207236
+    },
+    "epochs_run": 20,
+    "best_observed_epoch": 3,
+    "selected_epoch": 20,
+    "updates": 6840,
+    "fit_seconds": 93.44627542199987,
+    "parameters": 1096335,
+    "source_checkpoint": "restoration_study/runs/03_hidden_dropout_seed42/model.keras",
+    "source_checkpoint_note": "Original experiment provenance only; these superseded trial models are not required to build this presentation."
+  },
+  {
+    "name": "04_sku_dropout",
+    "seed": 42,
+    "signature": {
+      "config": {
+        "name": "04_sku_dropout",
+        "parent": "03_hidden_dropout",
+        "change": "Add 50% whole-SKU embedding dropout",
+        "transforms": 2,
+        "dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l2": 0.0,
+        "clip": 0.0,
+        "reduce_lr": false,
+        "early_stop": false,
+        "checkpoint": false,
+        "link": "linear",
+        "use_sku": true,
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "embedding": 8,
+        "lr": 0.001
+      },
+      "seed": 42,
+      "max_epochs": 20,
+      "patience": 12,
+      "batch": 1024,
+      "split_seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "script_sha256": "8ae535ec5a9cf19d0c9767ebc75dbdadffebe2d7bb04a973ef9c40898a3f30cf"
+    },
+    "train": {
+      "n": 349975,
+      "r2": 0.7143477631792055,
+      "mse": 728.5087254521269,
+      "rmse": 26.990900789935242,
+      "mae": 11.115565970103582,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.6074631722997768,
+      "mse": 971.854980659486,
+      "rmse": 31.174588700726847,
+      "mae": 12.722201803286412,
+      "target_mean": 22.76058392207236
+    },
+    "epochs_run": 20,
+    "best_observed_epoch": 15,
+    "selected_epoch": 20,
+    "updates": 6840,
+    "fit_seconds": 86.80505345999995,
+    "parameters": 1096335,
+    "source_checkpoint": "restoration_study/runs/04_sku_dropout_seed42/model.keras",
+    "source_checkpoint_note": "Original experiment provenance only; these superseded trial models are not required to build this presentation."
+  },
+  {
+    "name": "05_l2",
+    "seed": 42,
+    "signature": {
+      "config": {
+        "name": "05_l2",
+        "parent": "04_sku_dropout",
+        "change": "Add hidden-kernel L2 coefficient 0.0001",
+        "transforms": 2,
+        "dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l2": 0.0001,
+        "clip": 0.0,
+        "reduce_lr": false,
+        "early_stop": false,
+        "checkpoint": false,
+        "link": "linear",
+        "use_sku": true,
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "embedding": 8,
+        "lr": 0.001
+      },
+      "seed": 42,
+      "max_epochs": 20,
+      "patience": 12,
+      "batch": 1024,
+      "split_seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "script_sha256": "8ae535ec5a9cf19d0c9767ebc75dbdadffebe2d7bb04a973ef9c40898a3f30cf"
+    },
+    "train": {
+      "n": 349975,
+      "r2": 0.7115503080455111,
+      "mse": 735.6431715066689,
+      "rmse": 27.122742698825075,
+      "mae": 10.949285647930934,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.6144895697092257,
+      "mse": 954.4588057362995,
+      "rmse": 30.894316722275953,
+      "mae": 12.54230105199336,
+      "target_mean": 22.76058392207236
+    },
+    "epochs_run": 20,
+    "best_observed_epoch": 15,
+    "selected_epoch": 20,
+    "updates": 6840,
+    "fit_seconds": 85.1422198979999,
+    "parameters": 1096335,
+    "source_checkpoint": "restoration_study/runs/05_l2_seed42/model.keras",
+    "source_checkpoint_note": "Original experiment provenance only; these superseded trial models are not required to build this presentation."
+  },
+  {
+    "name": "09_checkpoint",
+    "seed": 42,
+    "signature": {
+      "config": {
+        "name": "09_checkpoint",
+        "parent": "08_early_stop",
+        "change": "Restore best validation MSE checkpoint",
+        "transforms": 2,
+        "dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l2": 0.0001,
+        "clip": 10.0,
+        "reduce_lr": true,
+        "early_stop": true,
+        "checkpoint": true,
+        "link": "linear",
+        "use_sku": true,
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "embedding": 8,
+        "lr": 0.001
+      },
+      "seed": 42,
+      "max_epochs": 20,
+      "patience": 12,
+      "batch": 1024,
+      "split_seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "script_sha256": "8ae535ec5a9cf19d0c9767ebc75dbdadffebe2d7bb04a973ef9c40898a3f30cf"
+    },
+    "train": {
+      "n": 349975,
+      "r2": 0.6961504297354748,
+      "mse": 774.9180108869766,
+      "rmse": 27.837349207260676,
+      "mae": 11.581094380050432,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.6176738572961331,
+      "mse": 946.5750467287204,
+      "rmse": 30.766459769182422,
+      "mae": 12.991013768053085,
+      "target_mean": 22.76058392207236
+    },
+    "epochs_run": 20,
+    "best_observed_epoch": 15,
+    "selected_epoch": 15,
+    "updates": 6840,
+    "fit_seconds": 86.0872883660004,
+    "parameters": 1096335,
+    "source_checkpoint": "restoration_study/runs/09_checkpoint_seed42/model.keras",
+    "source_checkpoint_note": "Original experiment provenance only; these superseded trial models are not required to build this presentation."
+  },
+  {
+    "name": "b_rmsprop001",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "b_rmsprop001",
+        "stage": "B",
+        "parent": "a_baseline",
+        "change": "rmsprop learning rate 0.001",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 0.0001,
+        "optimizer": "rmsprop",
+        "lr": 0.001,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 19,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 88.2492106790005,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 604.48046875,
+    "train": {
+      "n": 349975,
+      "r2": 0.6563704532685386,
+      "mse": 876.3702532253559,
+      "rmse": 29.603551361709222,
+      "mae": 12.44247567042273,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.6187002647844071,
+      "mse": 944.033834900242,
+      "rmse": 30.725133602642675,
+      "mae": 13.16357077293543,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/b_rmsprop001_seed42/model.keras",
+    "optimizer_state_saved": false
+  },
+  {
+    "name": "d_l2_low",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "d_l2_low",
+        "stage": "D",
+        "parent": "b_rmsprop001",
+        "change": "L2 coefficient 0.00001",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 1e-05,
+        "optimizer": "rmsprop",
+        "lr": 0.001,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 19,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 90.99646709800072,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 608.49609375,
+    "train": {
+      "n": 349975,
+      "r2": 0.6761301743951309,
+      "mse": 825.9763567397698,
+      "rmse": 28.739804396338013,
+      "mae": 11.743531905734988,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.6209042623633433,
+      "mse": 938.5771086180231,
+      "rmse": 30.63620584566606,
+      "mae": 12.729454170429994,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/d_l2_low_seed42/model.keras",
+    "optimizer_state_saved": false
+  }
+]

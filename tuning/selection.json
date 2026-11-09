@@ -1,0 +1,130 @@
+{
+  "groups": [
+    {
+      "name": "e_baseline",
+      "mean_validation_mse": 948.3601854586259,
+      "mean_validation_r2": 0.6169528313118177,
+      "mean_validation_rmse": 30.795447055376012,
+      "min_validation_r2": 0.6161548313683174,
+      "max_validation_r2": 0.6176738572961331
+    },
+    {
+      "name": "e_finalist1",
+      "mean_validation_mse": 935.2498370183667,
+      "mean_validation_r2": 0.6222481631146054,
+      "mean_validation_rmse": 30.58183330425564,
+      "min_validation_r2": 0.6215495713159147,
+      "max_validation_r2": 0.6235091110653197
+    },
+    {
+      "name": "e_finalist2",
+      "mean_validation_mse": 937.659631431482,
+      "mean_validation_r2": 0.6212748357425607,
+      "mean_validation_rmse": 30.621225366706074,
+      "min_validation_r2": 0.6209660856995172,
+      "max_validation_r2": 0.6217477079666833
+    }
+  ],
+  "selected_group": {
+    "name": "e_finalist1",
+    "mean_validation_mse": 935.2498370183667,
+    "mean_validation_r2": 0.6222481631146054,
+    "mean_validation_rmse": 30.58183330425564,
+    "min_validation_r2": 0.6215495713159147,
+    "max_validation_r2": 0.6235091110653197
+  },
+  "selected": {
+    "name": "e_finalist1",
+    "seed": 202,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "e_finalist1",
+        "stage": "E",
+        "parent": "d_l2_low",
+        "change": "Confirm screening configuration d_l2_low",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 1e-05,
+        "optimizer": "rmsprop",
+        "lr": 0.001,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 40,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 202,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 26,
+    "epochs_run": 38,
+    "updates": 12996,
+    "fit_seconds": 176.88102826799968,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 604.0078125,
+    "train": {
+      "n": 349975,
+      "r2": 0.6787730695344059,
+      "mse": 819.2360903555624,
+      "rmse": 28.622300577618887,
+      "mae": 11.48457940877493,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.6235091110653197,
+      "mse": 932.1279425621607,
+      "rmse": 30.530770422021135,
+      "mae": 12.508276266373855,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/e_finalist1_seed202/model.keras",
+    "optimizer_state_saved": false
+  },
+  "paired_differences": [
+    {
+      "seed": 42,
+      "baseline_r2": 0.6176738572961331,
+      "selected_r2": 0.6216858069625819,
+      "difference": 0.0040119496664488
+    },
+    {
+      "seed": 101,
+      "baseline_r2": 0.6170298052710026,
+      "selected_r2": 0.6215495713159147,
+      "difference": 0.00451976604491211
+    },
+    {
+      "seed": 202,
+      "baseline_r2": 0.6161548313683174,
+      "selected_r2": 0.6235091110653197,
+      "difference": 0.007354279697002308
+    }
+  ],
+  "mean_r2_gain": 0.005295331802787739,
+  "noticeable": true,
+  "frozen_before_test": true,
+  "timestamp_utc": "2026-10-29T05:56:50Z",
+  "original_proposed_threshold_met": false,
+  "user_acceptance": {
+    "criterion": "Positive mean validation R2 gain under matched confirmation budgets, with improvement in at least two paired seeds.",
+    "supersedes_original_threshold": true,
+    "paired_seed_wins": 3,
+    "accepted": true,
+    "does_not_change_configuration_or_checkpoint_selection": true
+  }
+}

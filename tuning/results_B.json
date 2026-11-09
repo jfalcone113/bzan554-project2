@@ -1,0 +1,498 @@
+[
+  {
+    "name": "b_adagrad01",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "b_adagrad01",
+        "stage": "B",
+        "parent": "a_baseline",
+        "change": "adagrad learning rate 0.01",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 0.0001,
+        "optimizer": "adagrad",
+        "lr": 0.01,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 20,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 85.84181951200026,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 599.453125,
+    "train": {
+      "n": 349975,
+      "r2": 0.5318853404213011,
+      "mse": 1193.8489185683445,
+      "rmse": 34.55211887234044,
+      "mae": 13.807166913444888,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.5490911474264499,
+      "mse": 1116.374269299699,
+      "rmse": 33.41218743661808,
+      "mae": 13.692776837611296,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/b_adagrad01_seed42/model.keras",
+    "optimizer_state_saved": false
+  },
+  {
+    "name": "b_momentum01",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "b_momentum01",
+        "stage": "B",
+        "parent": "a_baseline",
+        "change": "momentum learning rate 0.01",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 0.0001,
+        "optimizer": "momentum",
+        "lr": 0.01,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 19,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 79.12284651000027,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 603.40625,
+    "train": {
+      "n": 349975,
+      "r2": 0.5750150962254428,
+      "mse": 1083.8536187603177,
+      "rmse": 32.92193218449242,
+      "mae": 12.93145347016702,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.5889064885735931,
+      "mse": 1017.7981998205358,
+      "rmse": 31.902949704071816,
+      "mae": 12.864194904270022,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/b_momentum01_seed42/model.keras",
+    "optimizer_state_saved": false
+  },
+  {
+    "name": "b_nesterov01",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "b_nesterov01",
+        "stage": "B",
+        "parent": "a_baseline",
+        "change": "nesterov learning rate 0.01",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 0.0001,
+        "optimizer": "nesterov",
+        "lr": 0.01,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 19,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 82.14949372699994,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 600.24609375,
+    "train": {
+      "n": 349975,
+      "r2": 0.5731908665913557,
+      "mse": 1088.5060143461244,
+      "rmse": 32.99251451990473,
+      "mae": 12.86728548059328,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.586852012341426,
+      "mse": 1022.8847364662205,
+      "rmse": 31.982569259930017,
+      "mae": 12.802228174215209,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/b_nesterov01_seed42/model.keras",
+    "optimizer_state_saved": false
+  },
+  {
+    "name": "b_nesterov1",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "b_nesterov1",
+        "stage": "B",
+        "parent": "a_baseline",
+        "change": "nesterov learning rate 0.1",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 0.0001,
+        "optimizer": "nesterov",
+        "lr": 0.1,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 18,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 80.53931472000022,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 605.2734375,
+    "train": {
+      "n": 349975,
+      "r2": 0.624476322823066,
+      "mse": 957.7109511972461,
+      "rmse": 30.94690535735756,
+      "mae": 12.474656297997225,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.601825070635714,
+      "mse": 985.8139694651646,
+      "rmse": 31.397674586904753,
+      "mae": 12.641820740467526,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/b_nesterov1_seed42/model.keras",
+    "optimizer_state_saved": false
+  },
+  {
+    "name": "b_rmsprop0003",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "b_rmsprop0003",
+        "stage": "B",
+        "parent": "a_baseline",
+        "change": "rmsprop learning rate 0.0003",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 0.0001,
+        "optimizer": "rmsprop",
+        "lr": 0.0003,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 20,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 87.978007703,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 603.69921875,
+    "train": {
+      "n": 349975,
+      "r2": 0.5898877504688912,
+      "mse": 1045.9233770525238,
+      "rmse": 32.3407386596615,
+      "mae": 12.686805466096635,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.5953498356003775,
+      "mse": 1001.8455593083438,
+      "rmse": 31.651944005200434,
+      "mae": 12.737575085546954,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/b_rmsprop0003_seed42/model.keras",
+    "optimizer_state_saved": false
+  },
+  {
+    "name": "b_rmsprop001",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "b_rmsprop001",
+        "stage": "B",
+        "parent": "a_baseline",
+        "change": "rmsprop learning rate 0.001",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 0.0001,
+        "optimizer": "rmsprop",
+        "lr": 0.001,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 19,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 88.2492106790005,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 604.48046875,
+    "train": {
+      "n": 349975,
+      "r2": 0.6563704532685386,
+      "mse": 876.3702532253559,
+      "rmse": 29.603551361709222,
+      "mae": 12.44247567042273,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.6187002647844071,
+      "mse": 944.033834900242,
+      "rmse": 30.725133602642675,
+      "mae": 13.16357077293543,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/b_rmsprop001_seed42/model.keras",
+    "optimizer_state_saved": false
+  },
+  {
+    "name": "b_sgd01",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "b_sgd01",
+        "stage": "B",
+        "parent": "a_baseline",
+        "change": "sgd learning rate 0.01",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 0.0001,
+        "optimizer": "sgd",
+        "lr": 0.01,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 20,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 69.7982787410001,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 579.16015625,
+    "train": {
+      "n": 349975,
+      "r2": 0.4742258639771585,
+      "mse": 1340.8998647190363,
+      "rmse": 36.61829958803435,
+      "mae": 15.218365539443417,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.49240534158871774,
+      "mse": 1256.7187640031839,
+      "rmse": 35.450229392814705,
+      "mae": 15.085721807915249,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/b_sgd01_seed42/model.keras",
+    "optimizer_state_saved": false
+  },
+  {
+    "name": "b_sgd1",
+    "seed": 42,
+    "status": "complete",
+    "signature": {
+      "config": {
+        "name": "b_sgd1",
+        "stage": "B",
+        "parent": "a_baseline",
+        "change": "sgd learning rate 0.1",
+        "widths": [
+          256,
+          128,
+          64
+        ],
+        "activation": "sigmoid",
+        "initializer": "glorot_uniform",
+        "bn": "none",
+        "hidden_dropout": 0.05,
+        "sku_dropout": 0.5,
+        "l1": 0.0,
+        "l2": 0.0001,
+        "optimizer": "sgd",
+        "lr": 0.1,
+        "schedule": "plateau",
+        "batch": 1024,
+        "max_epochs": 20,
+        "patience": 12,
+        "clip": 10.0
+      },
+      "seed": 42,
+      "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+      "split_seed": 42,
+      "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+      "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    "selected_epoch": 19,
+    "epochs_run": 20,
+    "updates": 6840,
+    "fit_seconds": 69.60408883299988,
+    "parameters": 1096335,
+    "trainable_parameters": 1096335,
+    "peak_process_rss_mib": 579.6015625,
+    "train": {
+      "n": 349975,
+      "r2": 0.5739218590277559,
+      "mse": 1086.6417391908374,
+      "rmse": 32.964249410396675,
+      "mae": 13.10188579321163,
+      "target_mean": 22.752656618329876
+    },
+    "validation": {
+      "n": 74736,
+      "r2": 0.5879224910153034,
+      "mse": 1020.2344118151742,
+      "rmse": 31.94110849383869,
+      "mae": 13.044357457193616,
+      "target_mean": 22.76058392207236
+    },
+    "checkpoint": "tuning/runs/b_sgd1_seed42/model.keras",
+    "optimizer_state_saved": false
+  }
+]

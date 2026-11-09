@@ -1,0 +1,45 @@
+{
+  "checkpoint_byte_identical": true,
+  "partitions": {
+    "train": {
+      "rows": 349975,
+      "max_absolute_prediction_difference": 0.0,
+      "metrics": {
+        "n": 349975,
+        "r2": 0.6961504297354748,
+        "mse": 774.9180108869766,
+        "rmse": 27.837349207260676,
+        "mae": 11.581094380050432,
+        "target_mean": 22.752656618329876
+      }
+    },
+    "validation": {
+      "rows": 74736,
+      "max_absolute_prediction_difference": 0.0,
+      "metrics": {
+        "n": 74736,
+        "r2": 0.6176738572961331,
+        "mse": 946.5750467287204,
+        "rmse": 30.766459769182422,
+        "mae": 12.991013768053085,
+        "target_mean": 22.76058392207236
+      }
+    },
+    "test": {
+      "rows": 75289,
+      "max_absolute_prediction_difference": 0.0,
+      "metrics": {
+        "n": 75289,
+        "r2": 0.6195999974959807,
+        "mse": 999.2144589148968,
+        "rmse": 31.61035366640014,
+        "mae": 13.208285390715584,
+        "target_mean": 23.20888841663457
+      }
+    }
+  },
+  "parameters": 1096335,
+  "independent_model_builder_parameters": 1096335,
+  "post_cleanup_cli_verify_passed": true,
+  "post_cleanup_prediction_cli_rows": 16
+}

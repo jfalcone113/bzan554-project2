@@ -1,0 +1,553 @@
+{
+  "operation": "Remove redundant trial checkpoints, caches, old deck backups and temporary outputs; retain all numeric evidence and current models.",
+  "removed_files": [
+    {
+      "path": "ChatIterations.md",
+      "bytes": 813344,
+      "sha256": "9a28e6d692ee72d11363f85ab13a2b41eddea794c9b9c523ac83884957c046a8"
+    },
+    {
+      "path": "model/__pycache__/pricing_model.cpython-312.pyc",
+      "bytes": 30016,
+      "sha256": "bb5c0c36a1dfbb7151fdd4b9bb1d6690d74f15bafc2232176c36ae5a8d4eea4b"
+    },
+    {
+      "path": "model/evaluation.log",
+      "bytes": 1070,
+      "sha256": "73ff85e0773287f8b7394b364f69ab9072c8543ee45701d7775cb4369641d229"
+    },
+    {
+      "path": "model/prediction_smoke.log",
+      "bytes": 467,
+      "sha256": "cda5256397e726a328f4005a3d8f866457cfaf34d639e05dae9dba27951d4a12"
+    },
+    {
+      "path": "model/reproduction.log",
+      "bytes": 2031,
+      "sha256": "d601ab67cf858553709241427a33937b2caaf06215e5d92f6dd074ada3242f1b"
+    },
+    {
+      "path": "presentation/Presentation.tex",
+      "bytes": 14056,
+      "sha256": "a75d50a88af233823b55b581a410d47589700900557dd683c6c37282bb74fc56"
+    },
+    {
+      "path": "presentation/__pycache__/build_slides.cpython-312.pyc",
+      "bytes": 13808,
+      "sha256": "a835d77d2f71120ccc810e38db41a1edebe8dfac08424f34935834cf2bc346bc"
+    },
+    {
+      "path": "presentation/render.log",
+      "bytes": 986,
+      "sha256": "f454e0216da071121709481824193c650ac5f3c427ce88fbb33c56006c579cbd"
+    },
+    {
+      "path": "tuning/PRESENTATION_INSERT.qmd",
+      "bytes": 1016,
+      "sha256": "8af5decaceb1fedcdbbcf97c9c66093175752f16487e4726120fceeb0bb893ba"
+    },
+    {
+      "path": "tuning/__pycache__/finalize_user_result.cpython-312.pyc",
+      "bytes": 2126,
+      "sha256": "b1584a6bdfea04c735de82322a0c93992305c67dbeba2224ab478ea6bcc9a603"
+    },
+    {
+      "path": "tuning/__pycache__/report.cpython-312.pyc",
+      "bytes": 14158,
+      "sha256": "81a4778a014b63f03c48e2b6ba7863294536c0b56772f8602c4d6d905c04e6d3"
+    },
+    {
+      "path": "tuning/__pycache__/retrain_best.cpython-312.pyc",
+      "bytes": 3735,
+      "sha256": "9098dcd1602a6a1350c537d382e15dee02bd3aa0bf1a3c7aa13bdc026c97c273"
+    },
+    {
+      "path": "tuning/__pycache__/run_tuning.cpython-312.pyc",
+      "bytes": 40104,
+      "sha256": "6d792432d724b064aed038ba3d1df414d6035fd9a3c3a739624b77e563c7d4fc"
+    },
+    {
+      "path": "tuning/baseline_Presentation.pdf",
+      "bytes": 35124,
+      "sha256": "81e2927fbeb75a3b4f2405c7625f9163fd0ff06152fffe5fc81c4b429e5e805a"
+    },
+    {
+      "path": "tuning/baseline_Presentation.qmd",
+      "bytes": 4772,
+      "sha256": "008614e18a300987ae5295dd0fe254d8d733dbdba31abcccbe63ef25c5b82838"
+    },
+    {
+      "path": "tuning/baseline_build_slides.py",
+      "bytes": 7597,
+      "sha256": "b2914d1ba23265d166b4e84bc195c8a65b5d9d122460eff2c1c4b7a839cd0e6b"
+    },
+    {
+      "path": "tuning/baseline_final_test.json",
+      "bytes": 959,
+      "sha256": "507ea56b9f043f879fb627de97f2622713104cb361db70ecfff6dbd02fdb6d57"
+    },
+    {
+      "path": "tuning/baseline_selection.json",
+      "bytes": 1704,
+      "sha256": "87fd6ec64279ef18a9ab4fba997471f68b9924e5f7488f8d7f86101611d2e7d0"
+    },
+    {
+      "path": "tuning/data/preprocessing.json",
+      "bytes": 779,
+      "sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+    },
+    {
+      "path": "tuning/data/seen.npz",
+      "bytes": 131646,
+      "sha256": "df93fa749f098357da69d7244be4310f4dba2eab8565da3eeb8468f966fc7e36"
+    },
+    {
+      "path": "tuning/data/test.bin",
+      "bytes": 3613872,
+      "sha256": "c8e5c57f21c6e79ef8715d898f66470844b362a331585a68eb81cf091b8535b4"
+    },
+    {
+      "path": "tuning/data/train.bin",
+      "bytes": 16798800,
+      "sha256": "5f07880a9fbc1c1131ddd5035147a5eb12f78857b9c1fe03d09bb6e298a874b8"
+    },
+    {
+      "path": "tuning/data/validation.bin",
+      "bytes": 3587328,
+      "sha256": "88992a7ada22eab28eda3c31f5dac368f2a73cc879acb4d5a386f8cbf833c845"
+    },
+    {
+      "path": "tuning/runs/a_baseline_seed42/console.log",
+      "bytes": 1320,
+      "sha256": "bb41c7c66aca94f1b8cd6f54d5bead77665aaaee96c58cd14dda08402957cf6f"
+    },
+    {
+      "path": "tuning/runs/a_baseline_seed42/model.keras",
+      "bytes": 4434108,
+      "sha256": "3b479d311fc0c317c3d5269185aa172fe109d451d53e19e2602a95d452e2ba85"
+    },
+    {
+      "path": "tuning/runs/a_elu_he_seed42/console.log",
+      "bytes": 1283,
+      "sha256": "5eab9eaf3c3ff4b652111a5d877db36529efcd4d6e87c75ce41f1ceb150cd442"
+    },
+    {
+      "path": "tuning/runs/a_elu_he_seed42/model.keras",
+      "bytes": 4441068,
+      "sha256": "1439674c725bf1122cf2ad83d729d215e32345322fabc67149ca3cf003d48eab"
+    },
+    {
+      "path": "tuning/runs/a_leaky_he_seed42/console.log",
+      "bytes": 1318,
+      "sha256": "fe852734e292b21be8285f4ad1c7f0ac12e5cb3bbea6d2c93ef4889b43908a47"
+    },
+    {
+      "path": "tuning/runs/a_leaky_he_seed42/model.keras",
+      "bytes": 4441118,
+      "sha256": "801e578c802ec7c0e00cc7235b90cc88614751e2681858be242e63f568cdb16e"
+    },
+    {
+      "path": "tuning/runs/a_prelu_he_seed42/console.log",
+      "bytes": 1336,
+      "sha256": "3400e2f0a86588aa052577ef0f4ef1c17be23c92767ee5c2bd2adb89c35d1ca2"
+    },
+    {
+      "path": "tuning/runs/a_prelu_he_seed42/model.keras",
+      "bytes": 4445336,
+      "sha256": "addeb95e74d816367f5495a4fbe79c4985501f26148610bb7573895980d55f56"
+    },
+    {
+      "path": "tuning/runs/a_relu_glorot_seed42/console.log",
+      "bytes": 1327,
+      "sha256": "d4a58b8affeca4d4e44bb46bc10ee1133f25c6acc7e79245db8921b06b0f6f23"
+    },
+    {
+      "path": "tuning/runs/a_relu_glorot_seed42/model.keras",
+      "bytes": 4434099,
+      "sha256": "1ffa9b91aedb5c3a77f3d7d6a812beca411c790ba644cb435ba9e3d40782c0e3"
+    },
+    {
+      "path": "tuning/runs/a_relu_he_seed42/console.log",
+      "bytes": 1298,
+      "sha256": "bf82b200ef8d7f4b73204cc7d448103282ee11d512fd8f8891836f23af4846df"
+    },
+    {
+      "path": "tuning/runs/a_relu_he_seed42/model.keras",
+      "bytes": 4434083,
+      "sha256": "c4daa342343bc4603fd812c1b05b2b671888c75c4e5c7e4f5593151a844856d2"
+    },
+    {
+      "path": "tuning/runs/a_sigmoid_scaled_seed42/console.log",
+      "bytes": 1440,
+      "sha256": "31d8d7203e1940c6a97d99b337ecfc2eae00fd7a1fe6826b0bff2a8ced68b93e"
+    },
+    {
+      "path": "tuning/runs/a_sigmoid_scaled_seed42/model.keras",
+      "bytes": 4434300,
+      "sha256": "e08a5f31021e142838692a75ec1155a894c4d2f77a3aad38a992e6fc3670a1a9"
+    },
+    {
+      "path": "tuning/runs/a_swish_he_seed42/console.log",
+      "bytes": 1270,
+      "sha256": "249cc92118f5f71100264af00da596cc7bc974d89c1a971e401677cb390f0b5e"
+    },
+    {
+      "path": "tuning/runs/a_swish_he_seed42/model.keras",
+      "bytes": 4434084,
+      "sha256": "16765b833fccde924008bd0d6f0a8794e2031056f45f7258567fceda4db06bb7"
+    },
+    {
+      "path": "tuning/runs/a_tanh_seed42/console.log",
+      "bytes": 1236,
+      "sha256": "38883a0d8d04063d7ede8e9d81aa4de328fa18e434adc5fe5b93df835278cecd"
+    },
+    {
+      "path": "tuning/runs/a_tanh_seed42/model.keras",
+      "bytes": 4434092,
+      "sha256": "048fe04ca569c4c7e8f5fb8cbda39a324409cdb403c70d9861db7eb9c664c9cd"
+    },
+    {
+      "path": "tuning/runs/b_adagrad01_seed42/console.log",
+      "bytes": 1311,
+      "sha256": "6c5c74ad527c58fc61320ea3f0e2fbb28f8d473760d93f3fe4b2fefaf01b74df"
+    },
+    {
+      "path": "tuning/runs/b_adagrad01_seed42/model.keras",
+      "bytes": 4434106,
+      "sha256": "7fa562ebb00aba4938eaac1ffceead2559364316fd5796d91afd7fa5b672b4de"
+    },
+    {
+      "path": "tuning/runs/b_momentum01_seed42/console.log",
+      "bytes": 1331,
+      "sha256": "0c69f5e8ca40ad5fd21c459deb60add54697f79a3a2dc5d5cd471bbb82ac6214"
+    },
+    {
+      "path": "tuning/runs/b_momentum01_seed42/model.keras",
+      "bytes": 4434107,
+      "sha256": "8455f2b57ca775c5f94afc2103d2fb0542f10ab4f9f61cf63266f9cd25540399"
+    },
+    {
+      "path": "tuning/runs/b_nesterov01_seed42/console.log",
+      "bytes": 1331,
+      "sha256": "d9ca11bba5bb0aab4906a884590c0aef9a2aa4fe3e60fa0e053175f121e7e0f2"
+    },
+    {
+      "path": "tuning/runs/b_nesterov01_seed42/model.keras",
+      "bytes": 4434107,
+      "sha256": "515b7e46344599c8305b74266e4d6e2e78186de6fcec1eed0563e26e492dd9ae"
+    },
+    {
+      "path": "tuning/runs/b_nesterov1_seed42/console.log",
+      "bytes": 1291,
+      "sha256": "f57c95a1ab1301f56f3c96eb0e3f679f0bbb5ccf4a536f4960ac69c1b106a9b0"
+    },
+    {
+      "path": "tuning/runs/b_nesterov1_seed42/model.keras",
+      "bytes": 4434106,
+      "sha256": "e168b413cc0a00f873f386c395cf0a0f58e356ebdae1c7c75e48e9e26f6d185c"
+    },
+    {
+      "path": "tuning/runs/b_rmsprop0003_seed42/console.log",
+      "bytes": 1391,
+      "sha256": "ea00cec393a0ea4131f607f009508bb4345c2955131b3916242c5810ce001b95"
+    },
+    {
+      "path": "tuning/runs/b_rmsprop0003_seed42/model.keras",
+      "bytes": 4434108,
+      "sha256": "b35a32916d4d1d29bb3789d41eda27f8a39bf8c9678eba943c958aa453c1261f"
+    },
+    {
+      "path": "tuning/runs/b_rmsprop001_seed42/console.log",
+      "bytes": 1351,
+      "sha256": "1c0331cf646917221afa06e5c753b175296c9a2338dc610bb6009a90c9884a04"
+    },
+    {
+      "path": "tuning/runs/b_rmsprop001_seed42/model.keras",
+      "bytes": 4434107,
+      "sha256": "07e06ddd5ce0284a55854d50b32bd8c64da6f0e3255008a8774c1ca52ba33813"
+    },
+    {
+      "path": "tuning/runs/b_sgd01_seed42/console.log",
+      "bytes": 1231,
+      "sha256": "bdc65e17e86722bc19286942fdc7b1f7170ea270b9f80d2a677b042c2adc882a"
+    },
+    {
+      "path": "tuning/runs/b_sgd01_seed42/model.keras",
+      "bytes": 4434102,
+      "sha256": "40ca9d49f3c30ec644063d943e1a4fdfd297354902d820352657621cdc2544a8"
+    },
+    {
+      "path": "tuning/runs/b_sgd1_seed42/console.log",
+      "bytes": 1191,
+      "sha256": "4d6d5f1d4a795a852929b8ddd3976c6cd9855d08ac92749d30f73d67139eb1bc"
+    },
+    {
+      "path": "tuning/runs/b_sgd1_seed42/model.keras",
+      "bytes": 4434101,
+      "sha256": "c3b93789b9c583f862ffb7a52d7217b372f8e52d93442ec54ad8d3b604c6935b"
+    },
+    {
+      "path": "tuning/runs/c_bn_after_seed42/console.log",
+      "bytes": 1317,
+      "sha256": "f123d8a2bff34317e94ad2e836448b9c3eec5650d0a31edbfb186e5009cb3eff"
+    },
+    {
+      "path": "tuning/runs/c_bn_after_seed42/model.keras",
+      "bytes": 4461898,
+      "sha256": "318243921737ec95154e03d13f25c0ae45ef67d2e43f86d01df78a01737ff14f"
+    },
+    {
+      "path": "tuning/runs/c_bn_before_seed42/console.log",
+      "bytes": 1331,
+      "sha256": "6f2866c2be95e197759d744d3b1a96d1eab26d8fb1d75ae6e047660b724b0a25"
+    },
+    {
+      "path": "tuning/runs/c_bn_before_seed42/model.keras",
+      "bytes": 4459294,
+      "sha256": "fc8e8f342efc96392fed8000273606936a02aa7dc39146cf1f50a1f60a50de96"
+    },
+    {
+      "path": "tuning/runs/c_five_seed42/console.log",
+      "bytes": 1231,
+      "sha256": "46ab815b6f3ebaa8c1c57fd6e335c61383d1d2b0cafbcf023a4c8d3a2c394d15"
+    },
+    {
+      "path": "tuning/runs/c_five_seed42/model.keras",
+      "bytes": 4529475,
+      "sha256": "c264599837093bd227ee48128848b1759356d5b14ccd3b99fc0e1d916029dfb4"
+    },
+    {
+      "path": "tuning/runs/c_flat_three_seed42/console.log",
+      "bytes": 1351,
+      "sha256": "fe39e771349c1457c2185c8cc75e0068ab7e53235989c1f57b303ee47ae4d4ae"
+    },
+    {
+      "path": "tuning/runs/c_flat_three_seed42/model.keras",
+      "bytes": 4389567,
+      "sha256": "d19c5a0fb0d729dfce5a7dd4bf5650ad917993c3ccdb26bdb770accbd972f340"
+    },
+    {
+      "path": "tuning/runs/c_one_seed42/console.log",
+      "bytes": 1211,
+      "sha256": "68723b70efc79233b56d3e00b8608b2a8983267bcbe904973d6d197cf7654022"
+    },
+    {
+      "path": "tuning/runs/c_one_seed42/model.keras",
+      "bytes": 4244582,
+      "sha256": "293d10eb95361caa4230ea1aba42bfca03eac19545354706719784018324c574"
+    },
+    {
+      "path": "tuning/runs/c_seven_seed42/console.log",
+      "bytes": 1298,
+      "sha256": "a04f2816fcf028c4abb63f63ec6007671d58bc8b2ef826af8cae0ab5e5d8d7cb"
+    },
+    {
+      "path": "tuning/runs/c_seven_seed42/model.keras",
+      "bytes": 4813194,
+      "sha256": "b2abb48640972132a24488f218a8cf0eb097a3bdddcdae38b23cf00d9eddf11f"
+    },
+    {
+      "path": "tuning/runs/c_two_seed42/console.log",
+      "bytes": 1211,
+      "sha256": "5d71cb0702ed47f8329c9ff8cc013194f56febcfc7b3e0f020360f53a8d3713f"
+    },
+    {
+      "path": "tuning/runs/c_two_seed42/model.keras",
+      "bytes": 4283719,
+      "sha256": "1c3c221a3a621d9db3d814a7f83772c4c787cace4e18e58030a3168309ae9a03"
+    },
+    {
+      "path": "tuning/runs/c_wide_seed42/console.log",
+      "bytes": 1231,
+      "sha256": "9df3a4c9bec5ee8789246e4b85c140a99c04dd402b44ed8af75f6c21a9d68f51"
+    },
+    {
+      "path": "tuning/runs/c_wide_seed42/model.keras",
+      "bytes": 4951225,
+      "sha256": "656af56b6bc6053905ad61c4f42366d4d0666a1f6a4ed4e4ff388645fbd9694c"
+    },
+    {
+      "path": "tuning/runs/d_batch256_seed42/console.log",
+      "bytes": 1318,
+      "sha256": "c4c2afffa4281c1228173c20626a43a6f7bb7ff3e59b03e437e14521d52910df"
+    },
+    {
+      "path": "tuning/runs/d_batch256_seed42/model.keras",
+      "bytes": 4434105,
+      "sha256": "62d53de437fe7e3bbaa92b348d46a9e1d405a6e51747bfcf8137050881175465"
+    },
+    {
+      "path": "tuning/runs/d_batch4096_seed42/console.log",
+      "bytes": 1331,
+      "sha256": "0ad2c6ba8b52a600ef91f8af788eaeb27a31539af1fa779c322522232a2f2034"
+    },
+    {
+      "path": "tuning/runs/d_batch4096_seed42/model.keras",
+      "bytes": 4434106,
+      "sha256": "dc7086387cb85096cd1849b091b813087db37ab91910d8b2e4ed2ffb3426b780"
+    },
+    {
+      "path": "tuning/runs/d_dropout0_seed42/console.log",
+      "bytes": 1311,
+      "sha256": "9f49448f62306504c3b83cf406bb869dc598be51aad9fd279428bf0e8149611a"
+    },
+    {
+      "path": "tuning/runs/d_dropout0_seed42/model.keras",
+      "bytes": 4426464,
+      "sha256": "96611ebcec929d655e1739183cf8ba2caa490abc523eb8cf82d2c224beb39855"
+    },
+    {
+      "path": "tuning/runs/d_dropout10_seed42/console.log",
+      "bytes": 1331,
+      "sha256": "071d98bd64526ed21e00a6b1665197454e2a73738e55a6736ff5f94c6f3769f6"
+    },
+    {
+      "path": "tuning/runs/d_dropout10_seed42/model.keras",
+      "bytes": 4434103,
+      "sha256": "02c476e405ca1bd64891a2d8de64db5d3c97868a4f5a4d2ce7e07af30178fd41"
+    },
+    {
+      "path": "tuning/runs/d_exponential_seed42/console.log",
+      "bytes": 1461,
+      "sha256": "43545fc322052f8303f14932bae76cfcd6dc3765d6f637c1ac66ede973ce963f"
+    },
+    {
+      "path": "tuning/runs/d_exponential_seed42/model.keras",
+      "bytes": 4434108,
+      "sha256": "6e80d8cdf420a023293d3e3fb4935145b3e07f13ccf7caf480a832dee081f2dc"
+    },
+    {
+      "path": "tuning/runs/d_l2_high_seed42/console.log",
+      "bytes": 1298,
+      "sha256": "7ad6246e42fc71dda14fdc9a3e6a9a9529fefd91ba1b88b485e39371f6c9a8e4"
+    },
+    {
+      "path": "tuning/runs/d_l2_high_seed42/model.keras",
+      "bytes": 4434101,
+      "sha256": "188d25b8f80904cd2ed0f49cedb19747d682d4deb9830ad971c4b0702f7c69bb"
+    },
+    {
+      "path": "tuning/runs/d_l2_low_seed42/console.log",
+      "bytes": 1271,
+      "sha256": "758ead311358c2a7b22b891932438bb4755a6235db79bfa7669d02c28500ed75"
+    },
+    {
+      "path": "tuning/runs/d_l2_low_seed42/model.keras",
+      "bytes": 4434100,
+      "sha256": "48186adfb619f55c901b1f180616d3cacfe08595db58fd8c4b0e07da3d68d837"
+    },
+    {
+      "path": "tuning/runs/d_lr_low_seed42/console.log",
+      "bytes": 1291,
+      "sha256": "aeb434e851d8a9703e233be3f9313fcec4e5c89d197b59374560694acd04d63a"
+    },
+    {
+      "path": "tuning/runs/d_lr_low_seed42/model.keras",
+      "bytes": 4434103,
+      "sha256": "9d91c27298a627e13b7bdbae572c9c443062930c0eac229bdd95df7dba9cfaec"
+    },
+    {
+      "path": "tuning/runs/e_baseline_seed101/console.log",
+      "bytes": 2740,
+      "sha256": "5d2af8e86b8bc80b2d5e282410554e557839332581617c635766d66d1f8e2571"
+    },
+    {
+      "path": "tuning/runs/e_baseline_seed101/model.keras",
+      "bytes": 4434105,
+      "sha256": "f3b21522a6368b923ae30f376ff888729b6a596ed67fceb09122f6d68c2d2264"
+    },
+    {
+      "path": "tuning/runs/e_baseline_seed202/console.log",
+      "bytes": 2464,
+      "sha256": "19c6d7bbe0cbb6a1e427e2989f3ab48071b6fbb201ceabf48b733c7916361f57"
+    },
+    {
+      "path": "tuning/runs/e_baseline_seed202/model.keras",
+      "bytes": 4434105,
+      "sha256": "82754723bacbb0708b0a688f83b2c9a8b4dd159ff2f9c4c7cab4b4693a01b609"
+    },
+    {
+      "path": "tuning/runs/e_baseline_seed42/console.log",
+      "bytes": 1800,
+      "sha256": "d3842fcac8986a1c37f1a45df8c5e49cd3cd85a560b1b07f46f03a4affc972eb"
+    },
+    {
+      "path": "tuning/runs/e_baseline_seed42/model.keras",
+      "bytes": 4434105,
+      "sha256": "3a8eec792bf6ae0650981a44a7a72e859776fb1efde6252e74c370857345830e"
+    },
+    {
+      "path": "tuning/runs/e_finalist1_seed101/console.log",
+      "bytes": 2740,
+      "sha256": "e8fb92db3f3372313e583a6af48b94fe830af185b9f610fa491bb2da407cad2d"
+    },
+    {
+      "path": "tuning/runs/e_finalist1_seed101/model.keras",
+      "bytes": 4434103,
+      "sha256": "81424678b7314a94b89ce5be61f2d574b302bbdfbdbde84551646004ffa530d6"
+    },
+    {
+      "path": "tuning/runs/e_finalist1_seed202/console.log",
+      "bytes": 2621,
+      "sha256": "0a6ff74d2e41201b7a18fe07cb94c7bcc00fecd1c39c26730dca00aaaad8cd7d"
+    },
+    {
+      "path": "tuning/runs/e_finalist1_seed202/model.keras",
+      "bytes": 4434103,
+      "sha256": "fa283f9dee4ffce2ae9a27eac36f42aff3ba84c5c0e82534720a34c107a02615"
+    },
+    {
+      "path": "tuning/runs/e_finalist1_seed42/console.log",
+      "bytes": 2214,
+      "sha256": "53808ab30c95c51e8e04b0f5275d4a1fc4dc48a7ee9e29ff76e3282b1d45d06f"
+    },
+    {
+      "path": "tuning/runs/e_finalist1_seed42/model.keras",
+      "bytes": 4434103,
+      "sha256": "a206cab526ad189095beef3abc143c8608692c83bb5c59883da77326f6a27d3f"
+    },
+    {
+      "path": "tuning/runs/e_finalist2_seed101/console.log",
+      "bytes": 2747,
+      "sha256": "416c119dc5589abc1023406564eb4084bb42c1625adc3658354e20d4ae874edf"
+    },
+    {
+      "path": "tuning/runs/e_finalist2_seed101/model.keras",
+      "bytes": 4434106,
+      "sha256": "00444d039382b12613303d40ce187bafa2f13bdf33f75e6633d09f476102cfd0"
+    },
+    {
+      "path": "tuning/runs/e_finalist2_seed202/console.log",
+      "bytes": 2587,
+      "sha256": "1ab5d332f36b690db641b6d490f12d073b6299fccad3fc649e224f6f402157a5"
+    },
+    {
+      "path": "tuning/runs/e_finalist2_seed202/model.keras",
+      "bytes": 4434106,
+      "sha256": "0a780c7fb9218d9847f5b3191f788a30ee447d7331ad4707a00ba0dffc4ce665"
+    },
+    {
+      "path": "tuning/runs/e_finalist2_seed42/console.log",
+      "bytes": 2214,
+      "sha256": "2e580b9cb9f72fcee60cb94521878b21ed35a5d113ecddf8d31523b8477cc033"
+    },
+    {
+      "path": "tuning/runs/e_finalist2_seed42/model.keras",
+      "bytes": 4434106,
+      "sha256": "3a80fddeeea04bbb48e3ea49190f2eeb19cdd78d959e0d9ef130add4da9201e2"
+    },
+    {
+      "path": "tuning/study.log",
+      "bytes": 2138,
+      "sha256": "99ff619516393c52213e468b67ebab28ab387e16c280209c433f691eeb920aa5"
+    },
+    {
+      "path": "tuning/verification.log",
+      "bytes": 1081,
+      "sha256": "5083b40736a842ad738435f37bec3dd7b02456f71be51683fcf95c6f380354e2"
+    }
+  ],
+  "removed_bytes": 212098111,
+  "protected_files_verified": 25,
+  "retained_trial_records": 42
+}

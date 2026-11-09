@@ -1,0 +1,9 @@
+{
+  "instruction": "The lower-L2 RMSprop mean validation R2 around 0.6222 is fine. As long as R2 increases by a measurable amount.",
+  "supersedes": "The assistant-proposed +0.01 mean validation R2 threshold in the original plan.",
+  "criterion": "Positive mean validation R2 gain under matched confirmation budgets, with improvement in at least two paired seeds.",
+  "minimum_mean_gain_exclusive": 0.0,
+  "minimum_paired_wins": 2,
+  "configuration_selection_unchanged": "Lowest three-seed mean validation MSE; best validation checkpoint within selected configuration.",
+  "test_not_used_for_acceptance": true
+}

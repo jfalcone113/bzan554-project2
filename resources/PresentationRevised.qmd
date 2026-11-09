@@ -1,0 +1,156 @@
+---
+title: "Predicting Quantity Sold"
+subtitle: "BZAN 554 Group Project 1 · Group 6"
+author: "Joseph Falcone · Ian Allish · Will Schneider · Noah Hoogerheide"
+date: "September 24, 2026"
+format:
+  beamer:
+    slide-level: 2
+    aspectratio: 169
+    fontsize: 11pt
+header-includes:
+  - \setbeamertemplate{page number in head/foot}[totalframenumber]
+  - \setbeamertemplate{footline}[frame number]
+---
+
+## The prediction task
+
+**Goal:** predict the quantity sold in a stock observation from the information recorded for that observation.
+
+| Input | How the model uses it |
+|:---|:---|
+| SKU and category | Categorical features with learned embeddings |
+| Price, order, duration | Numeric features transformed using training-data statistics |
+
+The dataset contains **500,000 stock observations**. The target is quantity sold, measured in units.
+
+## Evaluation design
+
+| Split | Observations | Purpose |
+|:---|---:|:---|
+| Training | 349,975 | Fit model weights and preprocessing |
+| Validation | 74,736 | Compare models and select the epoch |
+| Test | 75,289 | Evaluate the selected model once |
+
+Observations were split at random. A SKU can appear in more than one split, so the test set primarily measures performance on **new observations**, not new products.
+
+## How the model trains
+
+```{=latex}
+\begin{center}
+\Large CSV chunk $\rightarrow$ mini-batches $\rightarrow$ weight updates
+\end{center}
+```
+
+| Unit | Size | Role |
+|:---|---:|:---|
+| Chunk | 16,384 rows | Limits how much CSV data is held in memory |
+| Mini-batch | 1,024 rows | Sets the number of examples per weight update |
+
+Each epoch makes another pass through the training observations. The two sizes serve different purposes: memory control and optimization.
+
+## Network and preprocessing
+
+```{=latex}
+\begin{center}
+\Large Inputs $\rightarrow$ 256 $\rightarrow$ 128 $\rightarrow$ 64 $\rightarrow$ predicted quantity
+\end{center}
+```
+
+- SKU and category are categorical; numeric variables are standardized from the training split.
+- The three hidden layers use sigmoid activations. Training uses Adam and mean squared error.
+- The selected model uses an exponential output link, which yields nonnegative predictions.
+
+## Validation selected the final model
+
+```{=latex}
+\centering
+\includegraphics[width=.88\textwidth,height=.68\textheight,keepaspectratio]{output/plots/validation_curves.png}
+\par\smallskip
+{\small Ten configurations were compared on validation data. The selected model was \texttt{exponential\_wide} at epoch 14.\par}
+```
+
+## Held-out test performance
+
+| Model / split | $R^2$ | RMSE | MAE |
+|:---|---:|---:|---:|
+| Training | 0.6562 | 29.61 | 12.26 |
+| Validation | 0.6105 | 31.06 | 12.96 |
+| **Test** | **0.6127** | **31.90** | **13.19** |
+| Test mean-only baseline | $\approx 0$ | 51.25 | 24.83 |
+
+The selected model explains about **61% of variation** in held-out observation quantity. RMSE and MAE are in units sold.
+
+## Error during incremental training
+
+```{=latex}
+\centering
+\includegraphics[width=.88\textwidth,height=.67\textheight,keepaspectratio]{output/plots/learning_curve.png}
+\par\smallskip
+{\small Error is measured before each mini-batch update; the line averages the most recent 50 mini-batches.\par}
+```
+
+## Which inputs matter to predictions?
+
+```{=latex}
+\centering
+\includegraphics[width=.88\textwidth,height=.67\textheight,keepaspectratio]{output/plots/variable_importance.png}
+\par\smallskip
+{\small Permutation importance measures the loss in predictive performance when one input is disrupted. It does not establish causation.\par}
+```
+
+## Partial dependence across four inputs
+
+```{=latex}
+\centering
+\includegraphics[width=.47\textwidth]{output/plots/pdp_price.png}\hfill
+\includegraphics[width=.47\textwidth]{output/plots/pdp_order.png}\par\vspace{-0.25em}
+\includegraphics[width=.47\textwidth]{output/plots/pdp_duration.png}\hfill
+\includegraphics[width=.47\textwidth]{output/plots/pdp_category.png}
+\par\vspace{0.25em}
+{\scriptsize Each curve averages model predictions while varying one input. These are model associations, not causal effects.\par}
+```
+
+## Selected model: CPU time and memory
+
+```{=latex}
+\begin{columns}[c]
+\begin{column}{.62\textwidth}
+\includegraphics[width=\linewidth]{output/plots/selected_model_memory.png}
+\end{column}
+\begin{column}{.34\textwidth}
+\begin{itemize}
+\item Sampled peak RAM: \textbf{604 MiB}
+\item Training time: \textbf{3.1 min}
+\item \textbf{4 CPU threads}
+\item Chunk: \textbf{16,384}; batch: \textbf{1,024}
+\end{itemize}
+\end{column}
+\end{columns}
+\vspace{0.5em}
+{\scriptsize RAM is whole-process RSS during the selected trial.\par}
+```
+
+## What the test result does not show
+
+- **New products:** SKUs can repeat across splits. Only 5,008 test observations use the unseen-SKU bucket.
+- **Future forecasts:** the split is random, not chronological.
+- **At-order predictions:** duration may only be known after an observation ends.
+- **Small-error guarantees:** large quantity errors weigh heavily in MSE and $R^2$.
+
+## Main findings
+
+1. The model reaches **test $R^2=0.6127$** and **RMSE = 31.90 units**, outperforming a mean-only baseline.
+2. During the selected trial, sampled process memory peaked near **604 MB** on the CPU run.
+3. The reported score applies to randomly held-out stock observations. A time-based or unseen-product test would answer a different question.
+
+## Team contributions and presentation roles
+
+| Presenter | Slides and topics |
+|:---|:---|
+| Ian Allish | Variable importance, partial dependence, CPU/RAM use 
+| Joseph Falcone | Evaluation design, training flow, network and processing
+| Will Schneider | Models selection, test performance, learning curve 
+| Noah Hoogerheide | Finding limitations, findings, team roles 
+
+*AI assistance:* ChatGPT helped create the ten-model neural-network comparison.

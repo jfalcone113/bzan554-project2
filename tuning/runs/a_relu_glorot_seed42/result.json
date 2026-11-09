@@ -1,0 +1,62 @@
+{
+  "name": "a_relu_glorot",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "a_relu_glorot",
+      "stage": "A",
+      "parent": "a_baseline",
+      "change": "ReLU activation with matched Glorot initialization",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "relu",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "adam",
+      "lr": 0.001,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 20,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 7,
+  "epochs_run": 19,
+  "updates": 6498,
+  "fit_seconds": 81.09148264000032,
+  "parameters": 1096335,
+  "trainable_parameters": 1096335,
+  "peak_process_rss_mib": 612.14453125,
+  "train": {
+    "n": 349975,
+    "r2": 0.7002998724340281,
+    "mse": 764.3355444400006,
+    "rmse": 27.646619041756274,
+    "mae": 11.142717745999148,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.6128812236467085,
+    "mse": 958.4407993256377,
+    "rmse": 30.958695052046973,
+    "mae": 12.45985722760015,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/a_relu_glorot_seed42/model.keras",
+  "optimizer_state_saved": false
+}

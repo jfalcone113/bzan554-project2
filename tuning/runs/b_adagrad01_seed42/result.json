@@ -1,0 +1,62 @@
+{
+  "name": "b_adagrad01",
+  "seed": 42,
+  "status": "complete",
+  "signature": {
+    "config": {
+      "name": "b_adagrad01",
+      "stage": "B",
+      "parent": "a_baseline",
+      "change": "adagrad learning rate 0.01",
+      "widths": [
+        256,
+        128,
+        64
+      ],
+      "activation": "sigmoid",
+      "initializer": "glorot_uniform",
+      "bn": "none",
+      "hidden_dropout": 0.05,
+      "sku_dropout": 0.5,
+      "l1": 0.0,
+      "l2": 0.0001,
+      "optimizer": "adagrad",
+      "lr": 0.01,
+      "schedule": "plateau",
+      "batch": 1024,
+      "max_epochs": 20,
+      "patience": 12,
+      "clip": 10.0
+    },
+    "seed": 42,
+    "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+    "split_seed": 42,
+    "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+    "preprocessing_sha256": "b3b8c5c235c47258b68be336e1fcdaef972f08fd16d854263fc9b5a858022f14"
+  },
+  "selected_epoch": 20,
+  "epochs_run": 20,
+  "updates": 6840,
+  "fit_seconds": 85.84181951200026,
+  "parameters": 1096335,
+  "trainable_parameters": 1096335,
+  "peak_process_rss_mib": 599.453125,
+  "train": {
+    "n": 349975,
+    "r2": 0.5318853404213011,
+    "mse": 1193.8489185683445,
+    "rmse": 34.55211887234044,
+    "mae": 13.807166913444888,
+    "target_mean": 22.752656618329876
+  },
+  "validation": {
+    "n": 74736,
+    "r2": 0.5490911474264499,
+    "mse": 1116.374269299699,
+    "rmse": 33.41218743661808,
+    "mae": 13.692776837611296,
+    "target_mean": 22.76058392207236
+  },
+  "checkpoint": "tuning/runs/b_adagrad01_seed42/model.keras",
+  "optimizer_state_saved": false
+}

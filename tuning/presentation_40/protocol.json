@@ -1,0 +1,50 @@
+{
+  "scope": [
+    [
+      "restore",
+      "00_basic"
+    ],
+    [
+      "restore",
+      "01_log"
+    ],
+    [
+      "restore",
+      "02_sqrt"
+    ],
+    [
+      "restore",
+      "03_hidden_dropout"
+    ],
+    [
+      "restore",
+      "04_sku_dropout"
+    ],
+    [
+      "restore",
+      "05_l2"
+    ],
+    [
+      "expanded",
+      "c_seven"
+    ],
+    [
+      "expanded",
+      "d_l2_high"
+    ],
+    [
+      "expanded",
+      "d_batch4096"
+    ],
+    [
+      "expanded",
+      "c_bn_before"
+    ]
+  ],
+  "seed": 42,
+  "epoch_cap": 40,
+  "policy": "Only epoch cap changes. Preserve final-epoch selection for early restoration steps; best validation checkpoint for expanded trials. Reproduce original epoch-20 metrics before accepting results. No test scoring. Reuse existing seed42 40-cap confirmation for steps6,7,8.",
+  "monitored_metric": "validation_mse",
+  "concurrency": 2,
+  "threads_per_fit": 4
+}

@@ -1,0 +1,9 @@
+{
+  "source_run": "09_checkpoint_seed42",
+  "selected_epoch": 15,
+  "epochs_run": 20,
+  "parameters": 1096335,
+  "fit_seconds": 86.0872883660004,
+  "optimizer_state_saved": false,
+  "checkpoint_sha256": "66d8c6949f504c0b66a2ff232b94d095a4818696643f2fa67369e681aaa6c181"
+}

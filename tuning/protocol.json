@@ -1,0 +1,26 @@
+{
+  "source_sha256": "b844680ce7979550b6201c4ebef308105995c119f5a293ac40827f0c9347f884",
+  "deep_md_sha256": "177b0e61a6f47f231152f67bfef2a32633420fccf747e476e4b83507d9fa5588",
+  "script_sha256": "8fec7f7bbd82dea05b082aecaea7cfc9ca328361b56cfbec00f28996c10575f4",
+  "split_seed": 42,
+  "counts": {
+    "train": 349975,
+    "validation": 74736,
+    "test": 75289
+  },
+  "screen_seed": 42,
+  "screen_max_epochs": 20,
+  "confirmation_seeds": [
+    42,
+    101,
+    202
+  ],
+  "confirmation_max_epochs": 40,
+  "max_fits": 42,
+  "max_concurrent_fits": 2,
+  "cpu_threads_per_fit": 4,
+  "noticeable_mean_r2_gain": 0.01,
+  "noticeable_min_paired_seed_wins": 2,
+  "selection": "mean validation MSE in confirmation; then best validation seed of that configuration",
+  "test_policy": "No candidate test scoring before frozen selection; historical exposure acknowledged."
+}
